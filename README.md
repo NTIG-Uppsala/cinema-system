@@ -1,2 +1,2 @@
 # Cinema system
-In this project we will create a pOS system for the cinema industry.
+In this project we will create a POS system for the cinema industry.
