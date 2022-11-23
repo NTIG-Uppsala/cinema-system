@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Automated_testing
+namespace PoS_Test
 {
     [TestClass]
     public class UnitTest1
