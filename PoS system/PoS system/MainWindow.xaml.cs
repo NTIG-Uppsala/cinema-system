@@ -22,7 +22,6 @@ namespace PoS_system
     {
         public MainWindow()
         {
-            InitializeComponent();
         }
     }
 }

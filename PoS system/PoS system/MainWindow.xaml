@@ -1,10 +1,12 @@
-﻿<Window x:Class="PoS_App.MainWindow"
+﻿<Window x:Class="PoS_system.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PoS_App"
+        xmlns:local="clr-namespace:PoS_system"
         mc:Ignorable="d"
-        Title="✨✨✨ WOW, it's a PoS system! ✨✨✨" Height="400" Width="600">
-    <TextBlock HorizontalAlignment="center" TextWrapping="Wrap" VerticalAlignment="center" Text="Hell-word" FontFamily="Trebuchet MS" FontSize="24"/>
+        Title="✨✨✨ WOW, it's a PoS system! ✨✨✨" Height="400" Width="600" ShowInTaskbar="False">
+    <Grid>
+        <TextBlock HorizontalAlignment="center" TextWrapping="Wrap" VerticalAlignment="center" Text="Hell-word" FontFamily="Trebuchet MS" FontSize="24"/>
+    </Grid>
 </Window>

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoS system", "PoS system\PoS system.csproj", "{457D9994-4EB5-494B-9413-D57FE43A54F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoS Test", "PoS Test\PoS Test.csproj", "{EC0B4F24-E585-4F95-AB23-027593A6EBBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{457D9994-4EB5-494B-9413-D57FE43A54F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{457D9994-4EB5-494B-9413-D57FE43A54F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{457D9994-4EB5-494B-9413-D57FE43A54F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC0B4F24-E585-4F95-AB23-027593A6EBBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC0B4F24-E585-4F95-AB23-027593A6EBBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC0B4F24-E585-4F95-AB23-027593A6EBBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC0B4F24-E585-4F95-AB23-027593A6EBBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
