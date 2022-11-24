@@ -5,10 +5,10 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-22.04
+    runs-on: windows-latest
     strategy:
       matrix:
-        dotnet-version: ['6.0', '6.x' ]
+        dotnet-version: ['6.0' ]
 
     steps:
       - uses: actions/checkout@v3
@@ -16,11 +16,9 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-      - name: Include WindowsDesktop Runtime
-        run: /home/runner/work/_actions/actions/setup-dotnet/v3/externals/install-dotnet.sh --channel 6.0 --runtime windowsdesktop
       - name: Install dependencies
-        run: dotnet restore './PoS system/PoS system.sln'
+        run: dotnet restore '.\PoS system\PoS system.sln'
       - name: Build
-        run: dotnet build './PoS system/PoS system.sln' --configuration Release --no-restore
+        run: dotnet build '.\PoS system\PoS system.sln' --configuration Release --no-restore
       - name: Test
-        run: dotnet test './PoS system/PoS system.sln' --no-restore --verbosity normal
+        run: dotnet test '.\PoS system\PoS system.sln' --no-restore --verbosity normal
