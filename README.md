@@ -9,6 +9,6 @@ To set up Visual Studio for this project: run the `setup.bat` file in setup fold
 - Everyone present should understand the project.
 - Necessary parts of code should be tested by automatic tests.
 - Pull requests should have a description of what they implement.
-- Code should follow the coding standard.
+- Code should follow the [coding conventions](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions).
 - Code should be documented.
 - The documentation should be up to date.
