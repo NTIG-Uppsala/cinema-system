@@ -1,11 +1,11 @@
-name: dotnet package
+name: dotnet tests on windows
 
 on: [push]
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     strategy:
       matrix:
         dotnet-version: ['6.0', '6.x' ]
@@ -17,8 +17,8 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
       - name: Install dependencies
-        run: dotnet restore './PoS system/PoS system.sln'
+        run: dotnet restore '.\PoS system\PoS system.sln'
       - name: Build
-        run: dotnet build './PoS system/PoS system.sln' --configuration Release --no-restore
+        run: dotnet build '.\PoS system\PoS system.sln' --configuration Release --no-restore
       - name: Test
-        run: dotnet test './PoS system/PoS system.sln' --no-restore --verbosity normal
+        run: dotnet test '.\PoS system\PoS system.sln' --no-restore --verbosity normal
