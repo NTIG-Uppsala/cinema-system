@@ -1,2 +1,5 @@
 # Cinema system
-In this project we will create a POS system for the cinema industry.
+A POS system for the cinema industry.
+
+##Setup
+To set up Visual Studio for this project: run the ´setup.bat´ file in setup folder.
