@@ -16,6 +16,8 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
+      - name: Also install WindowsDesktop runtime
+        run: dotnet install --runtime Microsoft.WindowsDesktop.App
       - name: Install dependencies
         run: dotnet restore './PoS system/PoS system.sln'
       - name: Build
