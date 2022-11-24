@@ -5,6 +5,7 @@
     <RootNamespace>PoS_Tests</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
