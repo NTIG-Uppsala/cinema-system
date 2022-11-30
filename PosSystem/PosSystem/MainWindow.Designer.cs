@@ -106,10 +106,10 @@
 
         #endregion
 
-        private Button PopcornButton;
-        private Button SodaButton;
+        public Button PopcornButton;
+        public Button SodaButton;
         private ListBox CheckoutList;
-        private Button Clear;
-        private Button Pay;
+        public Button Clear;
+        public Button Pay;
     }
 }

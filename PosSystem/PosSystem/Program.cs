@@ -15,19 +15,16 @@ namespace PosSystem
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new MainWindow());
-
-            ProductClass test = new ("Läsk", 10m);
-            CheckoutList.Add((test, 1));
-            Debug.WriteLine($"{CheckoutList[0].amount}");
         }
 
         public static void AddToCheckout(ProductClass product)
         {
-            foreach ((ProductClass, int) item in CheckoutList)
-            {
-                Debug.WriteLine($"{item.Item1.Name}, {item.Item2}");
-            }
+            CheckoutList.Add((product, 1));
         }
 
+        public static void ClearCheckout()
+        {
+            CheckoutList.Clear();
+        }
     }
 }

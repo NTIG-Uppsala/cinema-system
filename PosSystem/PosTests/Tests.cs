@@ -4,23 +4,27 @@ namespace PosTests
 {
     public class Tests
     {
+        private MainWindow _mainWindow;
+
         [SetUp]
         public void Setup()
         {
+            _mainWindow = new MainWindow();
+            _mainWindow.Show();
         }
 
         [Test]
         public void AddProduct()
         {
-            Program.AddToCheckout(new ProductClass("Läsk", 69m));
+            _mainWindow.PopcornButton.PerformClick();
             Assert.IsTrue(Program.CheckoutList.Count > 0);
         }
 
         [Test]
         public void ClearProduct()
         {
-            Program.AddToCheckout(new ProductClass("Läsk", 69m));
-            Assert.IsTrue(Program.CheckoutList.Count > 0);
+            _mainWindow.Clear.PerformClick();
+            Assert.IsTrue(Program.CheckoutList.Count == 0);
         }
     }
 }
