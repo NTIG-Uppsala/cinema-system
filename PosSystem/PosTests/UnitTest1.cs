@@ -1,3 +1,5 @@
+using PosSystem;
+
 namespace PosTests
 {
     public class Tests
@@ -10,9 +12,8 @@ namespace PosTests
         [Test]
         public void Test1()
         {
-            var CheckoutList = new List<string>();
-            CheckoutList.Add("Läsk");
-            Assert.IsTrue(CheckoutList.Count > 0);
+            Program.AddToCheckout(new ProductClass("Popcorn", 69m));
+            Assert.IsTrue(Program.CheckoutList.Count > 0);
         }
     }
 }
