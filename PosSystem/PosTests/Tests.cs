@@ -23,6 +23,7 @@ namespace PosTests
         [Test]
         public void ClearProduct()
         {
+            _mainWindow.PopcornButton.PerformClick();
             _mainWindow.Clear.PerformClick();
             Assert.IsTrue(Program.CheckoutList.Count == 0);
         }
