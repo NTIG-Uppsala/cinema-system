@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosSystem", "PosSystem\PosSystem.csproj", "{B43244B3-A67D-44EB-91B2-C09A0FC8BAE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PosTests", "PosTests\PosTests.csproj", "{741E9F14-9F12-4709-B5F0-C209BD12CB12}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B43244B3-A67D-44EB-91B2-C09A0FC8BAE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B43244B3-A67D-44EB-91B2-C09A0FC8BAE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B43244B3-A67D-44EB-91B2-C09A0FC8BAE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B43244B3-A67D-44EB-91B2-C09A0FC8BAE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{741E9F14-9F12-4709-B5F0-C209BD12CB12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{741E9F14-9F12-4709-B5F0-C209BD12CB12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{741E9F14-9F12-4709-B5F0-C209BD12CB12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{741E9F14-9F12-4709-B5F0-C209BD12CB12}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5EC49D1-CE65-4074-A650-56AD7714E42C}
+	EndGlobalSection
+EndGlobal
