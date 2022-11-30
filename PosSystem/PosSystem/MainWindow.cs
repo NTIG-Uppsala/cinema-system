@@ -2,6 +2,10 @@ namespace PosSystem
 {
     public partial class MainWindow : Form
     {
+        private ProductClass _popcorn = new("Popcorn", 69m);
+        private ProductClass _soda = new("Läsk", 69m);
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -9,13 +13,13 @@ namespace PosSystem
 
         private void PopcornButton_Click(object sender, EventArgs e)
         {
-            Program.AddToCheckout(new ProductClass("Popcorn", 69m));
+            Program.AddToCheckout(_popcorn);
             this.CheckoutList.Items.Add("Popcorn");
         }
 
         private void SodaButton_Click(object sender, EventArgs e)
         {
-            Program.AddToCheckout(new ProductClass("Läsk", 69m));
+            Program.AddToCheckout(_soda);
             this.CheckoutList.Items.Add("Läsk");
         }
 
