@@ -28,6 +28,5 @@ namespace PosSystem
             Program.ClearCheckout();
             this.CheckoutList.Items.Clear();
         }
-        
     }
 }
