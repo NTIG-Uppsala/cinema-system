@@ -156,15 +156,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Install"
-        "ProductCode" = "8:{468FABA4-4A16-4656-8517-09A82BB918B8}"
-        "PackageCode" = "8:{5796A6C5-8BCD-4CDA-98EF-C40D3327ABB1}"
+        "ProductCode" = "8:{DA3BE2DF-925C-4D37-9184-9027648DD937}"
+        "PackageCode" = "8:{AC33E8C3-BF54-4FE9-A580-79230BE98354}"
         "UpgradeCode" = "8:{65A609A1-EB17-41D3-86B3-A40A862B22F8}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:0.1.0"
+        "ProductVersion" = "8:0.1.1"
         "Manufacturer" = "8:Academedia"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -692,7 +692,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_65A5FDF1D81D4B43BF59A08D8F900912"
             {
-            "SourcePath" = "8:..\\PosSystem\\obj\\x86\\Release\\net6.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\PosSystem\\obj\\Debug\\net6.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_13D86AD829E346E5AB8C87660FD8AFB7"
