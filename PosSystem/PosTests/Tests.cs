@@ -27,5 +27,13 @@ namespace PosTests
             _mainWindow.Clear.PerformClick();
             Assert.IsTrue(Program.CheckoutList.Count == 0);
         }
+
+        [Test]
+        public void ReadTotal()
+        {
+            _mainWindow.PopcornButton.PerformClick();
+            _mainWindow.SodaButton.PerformClick();
+            Assert.IsTrue(_mainWindow.Total.Text == "40");
+        }
     }
 }
