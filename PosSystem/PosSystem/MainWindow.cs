@@ -13,14 +13,26 @@ namespace PosSystem
 
         private void PopcornButton_Click(object sender, EventArgs e)
         {
-            Program.AddToCheckout(_popcorn);
-            this.CheckoutList.Items.Add("Popcorn");
+            var i = 2;
+            var b = i++ + "x Popcorn";
+            // https://stackoverflow.com/questions/36236956/c-sharp-replace-text-in-listbox //
+            if (CheckoutList.Items.Cast<string>().Contains("1x Popcorn"))
+            {
+                int a = CheckoutList.Items.IndexOf("1x Popcorn");
+                CheckoutList.Items.RemoveAt(a);
+                CheckoutList.Items.Add(b);
+            }
+            else
+            {
+                Program.AddToCheckout(_popcorn);
+                CheckoutList.Items.Add("1x Popcorn");
+            }
         }
-
+        
         private void SodaButton_Click(object sender, EventArgs e)
         {
             Program.AddToCheckout(_soda);
-            this.CheckoutList.Items.Add("Läsk");
+            this.CheckoutList.Items.Add("1x Läsk");
         }
 
         private void Clear_Click(object sender, EventArgs e)
