@@ -174,7 +174,7 @@
             this.Controls.Add(this.SodaButton);
             this.Controls.Add(this.PopcornButton);
             this.Name = "MainWindow";
-            this.Text = "Form1";
+            this.Text = "Cinema POS System";
             this.panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
