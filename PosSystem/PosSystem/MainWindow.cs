@@ -25,9 +25,10 @@ namespace PosSystem
             var b = SodaSmallAdd++ + "x Läsk Liten";
             Program.AddToCheckout(_soda);
             this.CheckoutList.Items.Add(b);
-            // Calculates total price and adds the text top the TotalText textbox
+            // Adds the total price to the TotalText textbox
             this.TotalText.Text = "Total: " + Program.CheckoutList.Sum(x => x.product.Price).ToString() + "kr";
 
+            // Removes previous item
             if (SodaSmallAdd > 2)
             {
                 this.CheckoutList.Items.RemoveAt(this.CheckoutList.SelectedIndex != -1 ? this.CheckoutList.SelectedIndex : 0);
