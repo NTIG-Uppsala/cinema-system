@@ -26,6 +26,7 @@ namespace PosTests
             _mainWindow.PopcornButton.PerformClick();
             _mainWindow.Clear.PerformClick();
             Assert.IsTrue(Program.CheckoutList.Count == 0);
+            Assert.IsTrue(_mainWindow.TotalText.Text == "0kr");
         }
 
         [Test]
@@ -33,7 +34,7 @@ namespace PosTests
         {
             _mainWindow.PopcornButton.PerformClick();
             _mainWindow.SodaButton.PerformClick();
-            Assert.IsTrue(_mainWindow.Total.Text == "40");
+            Assert.IsTrue(_mainWindow.TotalText.Text == "40kr");
         }
     }
 }

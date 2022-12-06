@@ -36,7 +36,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.Total = new System.Windows.Forms.Panel();
+            this.TotalText = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -150,23 +150,21 @@
             this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 0;
             // 
-            // Total
+            // TotalText
             // 
-            this.Total.BackColor = System.Drawing.SystemColors.Info;
-            this.Total.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Total.Font = new System.Drawing.Font("Segoe UI", 1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Total.Location = new System.Drawing.Point(1719, 1120);
-            this.Total.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Total.Name = "Total";
-            this.Total.Size = new System.Drawing.Size(457, 101);
-            this.Total.TabIndex = 6;
+            this.TotalText.BackColor = System.Drawing.SystemColors.Info;
+            this.TotalText.Location = new System.Drawing.Point(1719, 1118);
+            this.TotalText.Multiline = true;
+            this.TotalText.Name = "TotalText";
+            this.TotalText.Size = new System.Drawing.Size(457, 97);
+            this.TotalText.TabIndex = 0;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2176, 1388);
-            this.Controls.Add(this.Total);
+            this.Controls.Add(this.TotalText);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Pay);
             this.Controls.Add(this.Clear);
@@ -182,6 +180,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -195,6 +194,6 @@
         private Panel panel1;
         private SplitContainer splitContainer1;
         private SplitContainer splitContainer2;
-        public Panel Total;
+        public TextBox TotalText;
     }
 }
