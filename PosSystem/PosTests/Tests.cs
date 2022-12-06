@@ -16,25 +16,25 @@ namespace PosTests
         [Test]
         public void AddProduct()
         {
-            _mainWindow.PopcornButton.PerformClick();
+            _mainWindow.PopcornButtonSmall.PerformClick();
             Assert.IsTrue(Program.CheckoutList.Count > 0);
         }
 
         [Test]
         public void ClearProduct()
         {
-            _mainWindow.PopcornButton.PerformClick();
+            _mainWindow.PopcornButtonSmall.PerformClick();
             _mainWindow.Clear.PerformClick();
             Assert.IsTrue(Program.CheckoutList.Count == 0);
-            Assert.IsTrue(_mainWindow.TotalText.Text == "0kr");
+            Assert.IsTrue(_mainWindow.TotalText.Text == "Total: 0kr");
         }
 
         [Test]
         public void ReadTotal()
         {
-            _mainWindow.PopcornButton.PerformClick();
-            _mainWindow.SodaButton.PerformClick();
-            Assert.IsTrue(_mainWindow.TotalText.Text == "40kr");
+            _mainWindow.PopcornButtonSmall.PerformClick();
+            _mainWindow.SodaButtonSmall.PerformClick();
+            Assert.IsTrue(_mainWindow.TotalText.Text == "Total: 40kr");
         }
     }
 }
