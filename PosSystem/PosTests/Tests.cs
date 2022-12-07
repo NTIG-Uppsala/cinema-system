@@ -17,7 +17,7 @@ namespace PosTests
         public void AddProduct()
         {
             _mainWindow.PopcornButtonSmall.PerformClick();
-            Assert.IsTrue(Program.CheckoutList.Count > 0);
+            Assert.IsTrue(Program.Checkout.Count > 0);
         }
 
         [Test]
@@ -25,8 +25,8 @@ namespace PosTests
         {
             _mainWindow.PopcornButtonSmall.PerformClick();
             _mainWindow.Clear.PerformClick();
-            Assert.IsTrue(Program.CheckoutList.Count == 0);
-            Assert.IsTrue(_mainWindow.TotalText.Text == "Total: 0kr");
+            Assert.IsTrue(Program.Checkout.Count == 0);
+            Assert.IsTrue(_mainWindow.TotalText.Text == "Totalt: 0kr");
         }
 
         [Test]
@@ -34,7 +34,7 @@ namespace PosTests
         {
             _mainWindow.PopcornButtonSmall.PerformClick();
             _mainWindow.SodaButtonSmall.PerformClick();
-            Assert.IsTrue(_mainWindow.TotalText.Text == "Total: 40kr");
+            Assert.IsTrue(_mainWindow.TotalText.Text == "Totalt: 40kr");
         }
     }
 }
