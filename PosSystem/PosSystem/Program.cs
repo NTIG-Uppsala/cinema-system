@@ -4,7 +4,7 @@ namespace PosSystem
 {
     public static class Program
     {
-        public static List<(ProductClass product, int amount)> CheckoutList = new();
+        public static Dictionary<ProductClass, int> Checkout = new();
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -19,12 +19,13 @@ namespace PosSystem
 
         public static void AddToCheckout(ProductClass product)
         {
-            CheckoutList.Add((product, 1));
+            Checkout.TryGetValue(product, out int currentCount);
+            Checkout[product] = currentCount + 1;
         }
 
         public static void ClearCheckout()
         {
-            CheckoutList.Clear();
+            Checkout.Clear();
         }
     }
 }

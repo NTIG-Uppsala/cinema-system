@@ -4,14 +4,12 @@ namespace PosSystem
 {
     public partial class MainWindow : Form
     {
-        private ProductClass _popcorn = new("Popcorn", 20m);
-        private ProductClass _soda = new("Läsk", 20m);
-        public int PopcornSmallAdd = 1;
-        public int PopcornMediumAdd = 1;
-        public int PopcornLargeAdd = 1;
-        public int SodaSmallAdd = 1;
-        public int SodaMediumAdd = 1;
-        public int SodaLargeAdd = 1;
+        private ProductClass _smallPopcorn = new("Popcorn Liten", 20m);
+        private ProductClass _smallSoda = new("Läsk Liten", 20m);
+        private ProductClass _mediumPopcorn = new("Popcorn Mellan", 20m);
+        private ProductClass _mediumSoda = new("Läsk Mellan", 20m);
+        private ProductClass _largePopcorn = new("Popcorn Stor", 20m);
+        private ProductClass _largeSoda = new("Läsk Stor", 20m);
 
 
         public MainWindow()
@@ -22,82 +20,65 @@ namespace PosSystem
         // Adds soda to the checkout list
         private void SodaButtonSmall_Click(object sender, EventArgs e)
         {
-            var b = SodaSmallAdd++ + "x Läsk Liten";
-            Program.AddToCheckout(_soda);
-            this.CheckoutList.Items.Add(b);
-            // Adds the total price to the TotalText textbox
-            this.TotalText.Text = "Total: " + Program.CheckoutList.Sum(x => x.product.Price).ToString() + "kr";
-
-            // Removes previous item
-            if (SodaSmallAdd > 2)
-            {
-                this.CheckoutList.Items.RemoveAt(this.CheckoutList.SelectedIndex != -1 ? this.CheckoutList.SelectedIndex : 0);
-            }
+            Program.AddToCheckout(_smallSoda);
+            // Updates list and total
+            UpdateCheckoutList();
+            UpdateTotal();
         }
 
         private void SodaButtonMedium_Click(object sender, EventArgs e)
         {
-            var b = SodaMediumAdd++ + "x Läsk Mellan";
-            Program.AddToCheckout(_soda);
-            this.CheckoutList.Items.Add(b);
-            this.TotalText.Text = "Total: " + Program.CheckoutList.Sum(x => x.product.Price).ToString() + "kr";
-
-            if (SodaMediumAdd > 2)
-            {
-                this.CheckoutList.Items.RemoveAt(this.CheckoutList.SelectedIndex != -1 ? this.CheckoutList.SelectedIndex : 0);
-            }
+            Program.AddToCheckout(_mediumSoda);
+            // Updates list and total
+            UpdateCheckoutList();
+            UpdateTotal();
         }
 
         private void SodaButtonLarge_Click(object sender, EventArgs e)
         {
-            var b = SodaLargeAdd++ + "x Läsk Stor";
-            Program.AddToCheckout(_soda);
-            this.CheckoutList.Items.Add(b);
-            this.TotalText.Text = "Total: " + Program.CheckoutList.Sum(x => x.product.Price).ToString() + "kr";
+            Program.AddToCheckout(_largeSoda);
+            // Updates list and total
+            UpdateCheckoutList();
+            UpdateTotal();
+        }
 
-            if (SodaLargeAdd > 2)
-            {
-                this.CheckoutList.Items.RemoveAt(this.CheckoutList.SelectedIndex != -1 ? this.CheckoutList.SelectedIndex : 0);
-            }
+        private void PopcornButtonSmall_Click(object sender, EventArgs e)
+        {
+            Program.AddToCheckout(_smallPopcorn);
+            // Updates list and total
+            UpdateCheckoutList();
+            UpdateTotal();
         }
 
         // Adds popcorn to the checkout list
-        private void PopcornButtonSmall_Click(object sender, EventArgs e)
-        {
-            var a = PopcornSmallAdd++ + "x Popcorn Liten";
-            Program.AddToCheckout(_popcorn);
-            this.CheckoutList.Items.Add(a);
-            this.TotalText.Text = "Total: " + Program.CheckoutList.Sum(x => x.product.Price).ToString() + "kr";
-
-            if (PopcornSmallAdd > 2)
-            {
-                this.CheckoutList.Items.RemoveAt(this.CheckoutList.SelectedIndex != -1 ? this.CheckoutList.SelectedIndex : 0);
-            }
-        }
-
         private void PopcornButtonMedium_Click(object sender, EventArgs e)
         {
-            var a = PopcornMediumAdd++ + "x Popcorn Mellan";
-            Program.AddToCheckout(_popcorn);
-            this.CheckoutList.Items.Add(a);
-            this.TotalText.Text = "Total: " + Program.CheckoutList.Sum(x => x.product.Price).ToString() + "kr";
-
-            if (PopcornMediumAdd > 2)
-            {
-                this.CheckoutList.Items.RemoveAt(this.CheckoutList.SelectedIndex != -1 ? this.CheckoutList.SelectedIndex : 0);
-            }
+            Program.AddToCheckout(_mediumPopcorn);
+            // Updates list and total
+            UpdateCheckoutList();
+            UpdateTotal();
         }
 
         private void PopcornButtonLarge_Click(object sender, EventArgs e)
         {
-            var a = PopcornLargeAdd++ + "x Popcorn Stor";
-            Program.AddToCheckout(_popcorn);
-            this.CheckoutList.Items.Add(a);
-            this.TotalText.Text = "Total: " + Program.CheckoutList.Sum(x => x.product.Price).ToString() + "kr";
+            Program.AddToCheckout(_largePopcorn);
+            // Updates list and total
+            UpdateCheckoutList();
+            UpdateTotal();
+        }
 
-            if (PopcornLargeAdd > 2)
+        private void UpdateTotal()
+        {
+            this.TotalText.Text = $"Totalt: {Program.Checkout.Sum(x => x.Key.Price * x.Value).ToString()}kr";
+        }
+
+        private void UpdateCheckoutList()
+        {
+            this.CheckoutList.Items.Clear();
+
+            foreach (KeyValuePair<ProductClass, int> product in Program.Checkout)
             {
-                this.CheckoutList.Items.RemoveAt(this.CheckoutList.SelectedIndex != -1 ? this.CheckoutList.SelectedIndex : 0);
+                this.CheckoutList.Items.Add($"{product.Value}x {product.Key.Name}");
             }
         }
 
@@ -106,13 +87,7 @@ namespace PosSystem
         {
             Program.ClearCheckout();
             this.CheckoutList.Items.Clear();
-            PopcornSmallAdd = 1;
-            PopcornMediumAdd = 1;
-            PopcornLargeAdd = 1;
-            SodaSmallAdd = 1;
-            SodaMediumAdd = 1;
-            SodaLargeAdd = 1;
-            this.TotalText.Text = "Total: 0kr";
+            this.TotalText.Text = "Totalt: 0kr";
         }
     }
 }
