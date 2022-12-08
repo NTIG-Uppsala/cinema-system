@@ -44,6 +44,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -74,16 +82,6 @@
                     {
                     "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
                     "ProductCode" = "8:.NETFramework,Version=v4.7.2"
-                    }
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.CoreRuntime.6.0.x64"
-                    {
-                    "Name" = "8:.NET Runtime 6.0.11 (x64)"
-                    "ProductCode" = "8:Microsoft.NetCore.CoreRuntime.6.0.x64"
-                    }
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.CoreRuntime.6.0.x86"
-                    {
-                    "Name" = "8:.NET Runtime 6.0.11 (x86)"
-                    "ProductCode" = "8:Microsoft.NetCore.CoreRuntime.6.0.x86"
                     }
                     "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.DesktopRuntime.6.0.x64"
                     {
@@ -136,7 +134,7 @@
         {
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_13D86AD829E346E5AB8C87660FD8AFB7"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\CinemaPos"
+            "DefaultLocation" = "8:[ProgramFilesFolder]\\CinemaPos"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -185,7 +183,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Install"
         "ProductCode" = "8:{DA3BE2DF-925C-4D37-9184-9027648DD937}"
-        "PackageCode" = "8:{AC33E8C3-BF54-4FE9-A580-79230BE98354}"
+        "PackageCode" = "8:{99F1710B-DE66-4450-A3E5-FD290ECB0FC4}"
         "UpgradeCode" = "8:{65A609A1-EB17-41D3-86B3-A40A862B22F8}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -305,6 +303,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_2393286D66AC401482FA36BFD8F73D0F"
+            {
+            "Name" = "8:PosSystem"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_65A5FDF1D81D4B43BF59A08D8F900912"
+            "Folder" = "8:_9615E737D04548DFA0B91639FACD08AC"
+            "WorkingFolder" = "8:_13D86AD829E346E5AB8C87660FD8AFB7"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_64AEAB6E0CA147E08D7922FCBD99CAC3"
             {
             "Name" = "8:CinemaPos"
