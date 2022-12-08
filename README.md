@@ -4,6 +4,12 @@ A POS system for the cinema industry.
 ## Setup
 To set up Visual Studio for this project: run the `setup.bat` file in setup folder.
 
+## Install the program
+To install the program, install the `Install.zip` file in releases.
+Unzip the file and run the setup.exe to install the program and necessary .NET versions.
+Then the program will appear on the desktop if you have icons on and it will appear in the windows start menu.
+After that you can run the program!
+
 ## Definition of Done
 - Code should be approved by everyone present, with a minimum of 2 people.
 - Everyone present should understand the project.
