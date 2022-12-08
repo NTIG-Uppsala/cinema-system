@@ -34,7 +34,7 @@ namespace PosTests
         {
             _mainWindow.PopcornButtonSmall.PerformClick();
             _mainWindow.SodaButtonSmall.PerformClick();
-            Assert.IsTrue(_mainWindow.TotalText.Text == "Totalt: 40kr");
+            Assert.IsTrue(_mainWindow.TotalText.Text == "Totalt: 45kr");
         }
     }
 }

@@ -4,12 +4,12 @@ namespace PosSystem
 {
     public partial class MainWindow : Form
     {
-        private ProductClass _smallPopcorn = new("Popcorn Liten", 20m);
+        private ProductClass _smallPopcorn = new("Popcorn Liten", 25m);
         private ProductClass _smallSoda = new("Läsk Liten", 20m);
-        private ProductClass _mediumPopcorn = new("Popcorn Mellan", 20m);
-        private ProductClass _mediumSoda = new("Läsk Mellan", 20m);
-        private ProductClass _largePopcorn = new("Popcorn Stor", 20m);
-        private ProductClass _largeSoda = new("Läsk Stor", 20m);
+        private ProductClass _mediumPopcorn = new("Popcorn Mellan", 35m);
+        private ProductClass _mediumSoda = new("Läsk Mellan", 25m);
+        private ProductClass _largePopcorn = new("Popcorn Stor", 50m);
+        private ProductClass _largeSoda = new("Läsk Stor", 35m);
 
 
         public MainWindow()
