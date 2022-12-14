@@ -89,5 +89,13 @@ namespace PosSystem
             this.CheckoutList.Items.Clear();
             this.TotalText.Text = "Totalt: 0kr";
         }
+
+        private void Pay_Click(object sender, EventArgs e)
+        {
+            Program.WriteReceipt();
+            Program.ClearCheckout();
+            this.CheckoutList.Items.Clear();
+            this.TotalText.Text = "Totalt: 0kr";
+        }
     }
 }

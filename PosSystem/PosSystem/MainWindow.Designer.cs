@@ -114,7 +114,7 @@
             this.Pay.TabIndex = 4;
             this.Pay.Text = "Betala";
             this.Pay.UseVisualStyleBackColor = false;
-            this.Pay.Click += new System.EventHandler(this.Clear_Click);
+            this.Pay.Click += new System.EventHandler(this.Pay_Click);
             // 
             // SodaButtonMedium
             // 
