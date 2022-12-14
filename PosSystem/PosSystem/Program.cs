@@ -7,6 +7,8 @@ namespace PosSystem
     public static class Program
     {
         public static Dictionary<ProductClass, int> Checkout = new();
+        public static int ReceiptId = 1;
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -32,12 +34,12 @@ namespace PosSystem
 
         public static void WriteReceipt()
         {
-            /*string[] Receipt = new string[1];
-            foreach (KeyValuePair<ProductClass, int> product in Checkout)
-            {
-                Receipt.Append($"{product.Key.Name}");
-            }*/
+            string ReceiptFolder = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\PosReceipts";
+            Directory.CreateDirectory(ReceiptFolder);
 
+            string SellerName = "Bengt Svensson";
+            string LocaleIdentifier = "14";
+            
             List<string> Receipt = new List<string>()
             {
                 "Bengans Biograf",
@@ -46,66 +48,42 @@ namespace PosSystem
                 "Tel: (+46)63-055 55 55",
                 "Mail: info.bengans@gmail.com",
                 "Org. Nr: 234567-8901\n",
-                "-----------------------------------------------------",
-                Environment.NewLine
+                $"Säljare: {SellerName}",
+                $"{DateTime.Now.ToString("s").Replace("T", " ")}",
+                $"Lokal Nr: {LocaleIdentifier}",
+                $"Kvitto Nr: {ReceiptId}",
+                "-----------------------------------------------------\n",
             };
 
             foreach (KeyValuePair<ProductClass, int> product in Checkout)
             {
                 Receipt.Add($"{product.Key.Name}");
+                Receipt.Add($"\t\t\t{product.Value} st á\t{(product.Key.Price).ToString("0.00")} SEK");
+                Receipt.Add($"\t\t\t\t\t{(product.Value * product.Key.Price).ToString("0.00")} SEK\n");
                 Debug.WriteLine(Receipt.Count);
             }
 
-            /*string[] Receipt =
+            List<string> ReceitPart2 = new List<string>()
             {
-                "Bengans Biograf",
-                "Fjällgatan 32H",
-                "981 39 Jönköping",
-                Environment.NewLine,
-                "Tel: (+46)63-055 55 55",
-                "Mail: info.bengans@gmail.com",
-                "Org. Nr: 234567-8901",
-                Environment.NewLine,
-                $"Säljare: {SELLER_NAME}",
-                $"{YYYY-MM-DD} {HH:MM}",
-                $"Lokal Nr: {LOCALE_ID}",
-                $"Kvitto Nr: {RECEIPT_ID}",
-                Environment.NewLine,
-                "-----------------------------------------------------",
-                Environment.NewLine
-            };
-
-            foreach (KeyValuePair<ProductClass, int> product in Checkout)
-            {
-                Receipt.Append($"{product.Key.Name}");
-                Receipt.Append($"\t\t\t{product.Value} st á\t{(product.Key.Price).ToString("0.00")} SEK");
-                Receipt.Append($"\t\t\t\t\t{(product.Value * product.Key.Price).ToString("0.00")} SEK");
-                Receipt.Append(Environment.NewLine);
-            }
-
-            string[] ReceitPart2 =
-            {
-                "-----------------------------------------------------",
-                Environment.NewLine,
+                "-----------------------------------------------------\n",
                 "Momsunderlag:",
-                $"Moms 25%\t{MOMS_25} SEK",
-                $"Moms 12%\t{MOMS_12} SEK",
-                $"Moms 6%\t\t{MOMS_6} SEK",
-                $"Momsfritt\t{MOMS_0} SEK",
-                Environment.NewLine,
-                $"Nettopris:\t{NOT_MOMS} SEK",
-                $"Total moms:\t{TOTAL_MOMS} SEK",
-                Environment.NewLine,
-                $"SUMMA:\t\t{TOTAL_PRICE} SEK",
-                Environment.NewLine,
-                "---------------------------------------------------- -",
-                Environment.NewLine,
-                "Kortbetalningsinformation finns på annat kvitto.",
-                Environment.NewLine,
+                "Moms 25%\t{MOMS_25} SEK",
+                "Moms 12%\t{MOMS_12} SEK",
+                "Moms 6%\t\t{MOMS_6} SEK",
+                "Momsfritt\t{MOMS_0} SEK\n",
+                "Nettopris:\t{NOT_MOMS} SEK",
+                "Total moms:\t{TOTAL_MOMS} SEK\n",
+                "SUMMA:\t\t{TOTAL_PRICE} SEK\n",
+                "-----------------------------------------------------\n",
+                "Kortbetalningsinformation finns på annat kvitto.\n",
                 "Öppet köp gäller endast biljett, fram till 24 timmar",
                 "innan visning",
-            };*/
-            File.WriteAllLinesAsync("output.txt", Receipt);
+            };
+
+            Receipt.AddRange(ReceitPart2);
+
+            File.WriteAllLinesAsync($"{ReceiptFolder}\\output{ReceiptId}.txt", Receipt);
+            ReceiptId++;
         }
     }
 }
