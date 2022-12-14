@@ -39,8 +39,36 @@ namespace PosSystem
 
             string SellerName = "Bengt Svensson";
             string LocaleIdentifier = "14";
+
+            decimal Vat25 = 0m;
+            decimal Vat12 = 0m;
+            decimal Vat6 = 0m;
+            decimal Vat0 = 0m;
             
-            List<string> Receipt = new List<string>()
+            foreach (KeyValuePair<ProductClass, int> product in Checkout)
+            {
+                switch (product.Key.Vat)
+                {
+                    case 25:
+                        Vat25 += product.Key.Price * product.Value / 1.25m;
+                        break;
+                    case 12:
+                        Vat12 += product.Key.Price * product.Value / 1.12m;
+                        break;
+                    case 6:
+                        Vat6 += product.Key.Price * product.Value / 1.06m;
+                        break;
+                    default:
+                        Vat0 += product.Key.Price * product.Value;
+                        break;
+                }
+            }
+
+            decimal NetPrice = Vat25 + Vat12 + Vat6 + Vat0;
+            decimal TotalVat = (Vat25 * 0.25m) + (Vat12 * 0.12m) + (Vat6 * 0.06m);
+            decimal TotalSum = NetPrice + TotalVat;
+
+                List<string> Receipt = new List<string>()
             {
                 "Bengans Biograf",
                 "Fjällgatan 32H",
@@ -60,20 +88,19 @@ namespace PosSystem
                 Receipt.Add($"{product.Key.Name}");
                 Receipt.Add($"\t\t\t{product.Value} st á\t{(product.Key.Price).ToString("0.00")} SEK");
                 Receipt.Add($"\t\t\t\t\t{(product.Value * product.Key.Price).ToString("0.00")} SEK\n");
-                Debug.WriteLine(Receipt.Count);
             }
 
             List<string> ReceitPart2 = new List<string>()
             {
                 "-----------------------------------------------------\n",
                 "Momsunderlag:",
-                "Moms 25%\t{MOMS_25} SEK",
-                "Moms 12%\t{MOMS_12} SEK",
-                "Moms 6%\t\t{MOMS_6} SEK",
-                "Momsfritt\t{MOMS_0} SEK\n",
-                "Nettopris:\t{NOT_MOMS} SEK",
-                "Total moms:\t{TOTAL_MOMS} SEK\n",
-                "SUMMA:\t\t{TOTAL_PRICE} SEK\n",
+                $"Moms 25%\t{Vat25.ToString("0.00")} SEK",
+                $"Moms 12%\t{Vat12.ToString("0.00")} SEK",
+                $"Moms 6%\t\t{Vat6.ToString("0.00")} SEK",
+                $"Momsfritt\t{Vat0.ToString("0.00")} SEK\n",
+                $"Nettopris:\t{NetPrice.ToString("0.00")} SEK",
+                $"Total moms:\t{TotalVat.ToString("0.00")} SEK\n",
+                $"SUMMA:\t\t{TotalSum.ToString("0.00")} SEK\n",
                 "-----------------------------------------------------\n",
                 "Kortbetalningsinformation finns på annat kvitto.\n",
                 "Öppet köp gäller endast biljett, fram till 24 timmar",

@@ -43,7 +43,7 @@ namespace PosTests
             _mainWindow.PopcornButtonSmall.PerformClick();
             _mainWindow.SodaButtonSmall.PerformClick();
             _mainWindow.Pay.PerformClick();
-            Assert.IsTrue(File.Exists("output.txt"));
+            Assert.IsTrue(File.Exists($"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\PosReceipts\\output1.txt"));
             StringAssert.Contains("Popcorn Liten", File.ReadAllText("output.txt"));
             StringAssert.Contains("Läsk Liten", File.ReadAllText("output.txt"));
         }
