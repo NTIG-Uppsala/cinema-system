@@ -36,5 +36,16 @@ namespace PosTests
             _mainWindow.SodaButtonSmall.PerformClick();
             Assert.IsTrue(_mainWindow.TotalText.Text == "Totalt: 45kr");
         }
+
+        [Test]
+        public void ReadOutputFile()
+        {
+            _mainWindow.PopcornButtonSmall.PerformClick();
+            _mainWindow.SodaButtonSmall.PerformClick();
+            _mainWindow.Pay.PerformClick();
+            Assert.IsTrue(File.Exists("output.txt"));
+            StringAssert.Contains("Popcorn Liten", File.ReadAllText("output.txt"));
+            StringAssert.Contains("Läsk Liten", File.ReadAllText("output.txt"));
+        }
     }
 }
