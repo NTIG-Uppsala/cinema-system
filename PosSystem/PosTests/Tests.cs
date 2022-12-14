@@ -40,12 +40,14 @@ namespace PosTests
         [Test]
         public void ReadOutputFile()
         {
+            string ReceiptFolder = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\PosReceipts";
+            
             _mainWindow.PopcornButtonSmall.PerformClick();
             _mainWindow.SodaButtonSmall.PerformClick();
             _mainWindow.Pay.PerformClick();
-            Assert.IsTrue(File.Exists($"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\PosReceipts\\output1.txt"));
-            StringAssert.Contains("Popcorn Liten", File.ReadAllText("output.txt"));
-            StringAssert.Contains("Läsk Liten", File.ReadAllText("output.txt"));
+            Assert.IsTrue(File.Exists($"{ReceiptFolder}\\output1.txt"));
+            StringAssert.Contains("Popcorn Liten", File.ReadAllText($"{ReceiptFolder}\\output1.txt"));
+            StringAssert.Contains("Läsk Liten", File.ReadAllText($"{ReceiptFolder}\\output1.txt"));
         }
     }
 }
