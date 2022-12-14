@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using System.Reflection;
 
@@ -31,7 +32,31 @@ namespace PosSystem
 
         public static void WriteReceipt()
         {
-            string[] Receipt =
+            /*string[] Receipt = new string[1];
+            foreach (KeyValuePair<ProductClass, int> product in Checkout)
+            {
+                Receipt.Append($"{product.Key.Name}");
+            }*/
+
+            List<string> Receipt = new List<string>()
+            {
+                "Bengans Biograf",
+                "Fjällgatan 32H",
+                "981 39 Jönköping\n",
+                "Tel: (+46)63-055 55 55",
+                "Mail: info.bengans@gmail.com",
+                "Org. Nr: 234567-8901\n",
+                "-----------------------------------------------------",
+                Environment.NewLine
+            };
+
+            foreach (KeyValuePair<ProductClass, int> product in Checkout)
+            {
+                Receipt.Add($"{product.Key.Name}");
+                Debug.WriteLine(Receipt.Count);
+            }
+
+            /*string[] Receipt =
             {
                 "Bengans Biograf",
                 "Fjällgatan 32H",
@@ -79,7 +104,8 @@ namespace PosSystem
                 Environment.NewLine,
                 "Öppet köp gäller endast biljett, fram till 24 timmar",
                 "innan visning",
-            };
+            };*/
+            File.WriteAllLinesAsync("output.txt", Receipt);
         }
     }
 }
