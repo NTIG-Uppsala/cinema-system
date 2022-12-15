@@ -137,7 +137,7 @@ namespace PosSystem
                 }
             }
 
-            File.WriteAllLinesAsync($@"{receiptFolder}\output{ReceiptId}.txt", receipt);
+            File.WriteAllLines($@"{receiptFolder}\output{ReceiptId}.txt", receipt);
             ReceiptId++;
         }
     }
