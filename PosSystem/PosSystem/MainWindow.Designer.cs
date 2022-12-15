@@ -61,7 +61,7 @@
             this.CheckoutList.Location = new System.Drawing.Point(1085, 0);
             this.CheckoutList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CheckoutList.Name = "CheckoutList";
-            this.CheckoutList.Size = new System.Drawing.Size(405, 774);
+            this.CheckoutList.Size = new System.Drawing.Size(405, 809);
             this.CheckoutList.TabIndex = 2;
             // 
             // Clear

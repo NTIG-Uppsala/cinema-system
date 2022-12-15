@@ -126,11 +126,14 @@ namespace PosSystem
             {
                 if(product.Key is TicketProduct)
                 {
-                    receipt.Add("\n-----------------------------------------------------\n");
-                    receipt.Add($"{product.Key.Name.Replace("Biljett - ","")}");
-                    receipt.Add($"Datum: {currentDateTime.AddHours(1).ToString("yyyy-MM-dd HH:00")}");
-                    receipt.Add($"Plats: {SeatPosition}");
-                    SeatPosition++;
+                    for (int i = 0; i < product.Value; i++)
+                    {
+                        receipt.Add("\n-----------------------------------------------------\n");
+                        receipt.Add($"{product.Key.Name.Replace("Biljett - ", "")}");
+                        receipt.Add($"Datum: {currentDateTime.AddHours(1).ToString("yyyy-MM-dd HH:00")}");
+                        receipt.Add($"Plats: {SeatPosition}");
+                        SeatPosition++;
+                    }
                 }
             }
 
