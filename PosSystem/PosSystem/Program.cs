@@ -8,6 +8,14 @@ namespace PosSystem
     {
         public static Dictionary<ProductClass, int> Checkout = new();
         public static int ReceiptId = 1;
+        public static int seatPosition = 1;
+
+        public static readonly ProductClass _smallPopcorn = new("Popcorn Liten", 25m);
+        public static readonly ProductClass _smallSoda = new("Läsk Liten", 20m);
+        public static readonly ProductClass _mediumPopcorn = new("Popcorn Mellan", 35m);
+        public static readonly ProductClass _mediumSoda = new("Läsk Mellan", 25m);
+        public static readonly ProductClass _largePopcorn = new("Popcorn Stor", 50m);
+        public static readonly ProductClass _largeSoda = new("Läsk Stor", 35m);
 
         /// <summary>
         ///  The main entry point for the application.
@@ -34,8 +42,9 @@ namespace PosSystem
 
         public static void WriteReceipt()
         {
-            string ReceiptFolder = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\PosReceipts";
+            string ReceiptFolder = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\PosReceipts";
             Directory.CreateDirectory(ReceiptFolder);
+            var currentDateTime = DateTime.Now;
 
             string SellerName = "Bengt Svensson";
             string LocaleIdentifier = "14";
@@ -77,7 +86,7 @@ namespace PosSystem
                 "Mail: info.bengans@gmail.com",
                 "Org. Nr: 234567-8901\n",
                 $"Säljare: {SellerName}",
-                $"{DateTime.Now.ToString("s").Replace("T", " ")}",
+                $"{currentDateTime.ToString("s").Replace("T", " ")}",
                 $"Lokal Nr: {LocaleIdentifier}",
                 $"Kvitto Nr: {ReceiptId}",
                 "-----------------------------------------------------\n",
@@ -106,10 +115,21 @@ namespace PosSystem
                 "Öppet köp gäller endast biljett, fram till 24 timmar",
                 "innan visning",
             };
-
             Receipt.AddRange(ReceitPart2);
 
-            File.WriteAllLinesAsync($"{ReceiptFolder}\\output{ReceiptId}.txt", Receipt);
+            foreach (KeyValuePair<ProductClass, int> product in Checkout)
+            {
+                if(product.Key is TicketProduct)
+                {
+                    Receipt.Add("\n-----------------------------------------------------\n");
+                    Receipt.Add($"{product.Key.Name.Replace("Biljett - ","")}");
+                    Receipt.Add($"Datum: {DateOnly.FromDateTime(currentDateTime).ToString("s")}");
+                    Receipt.Add($"Plats: {seatPosition}");
+                    seatPosition++;
+                }
+            }
+
+            File.WriteAllLinesAsync($@"{ReceiptFolder}\output{ReceiptId}.txt", Receipt);
             ReceiptId++;
         }
     }

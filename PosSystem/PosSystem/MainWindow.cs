@@ -4,14 +4,6 @@ namespace PosSystem
 {
     public partial class MainWindow : Form
     {
-        private ProductClass _smallPopcorn = new("Popcorn Liten", 25m);
-        private ProductClass _smallSoda = new("Läsk Liten", 20m);
-        private ProductClass _mediumPopcorn = new("Popcorn Mellan", 35m);
-        private ProductClass _mediumSoda = new("Läsk Mellan", 25m);
-        private ProductClass _largePopcorn = new("Popcorn Stor", 50m);
-        private ProductClass _largeSoda = new("Läsk Stor", 35m);
-
-
         public MainWindow()
         {
             InitializeComponent();
@@ -20,7 +12,7 @@ namespace PosSystem
         // Adds soda to the checkout list
         private void SodaButtonSmall_Click(object sender, EventArgs e)
         {
-            Program.AddToCheckout(_smallSoda);
+            Program.AddToCheckout(Program._smallSoda);
             // Updates list and total
             UpdateCheckoutList();
             UpdateTotal();
@@ -28,7 +20,7 @@ namespace PosSystem
 
         private void SodaButtonMedium_Click(object sender, EventArgs e)
         {
-            Program.AddToCheckout(_mediumSoda);
+            Program.AddToCheckout(Program._mediumSoda);
             // Updates list and total
             UpdateCheckoutList();
             UpdateTotal();
@@ -36,7 +28,7 @@ namespace PosSystem
 
         private void SodaButtonLarge_Click(object sender, EventArgs e)
         {
-            Program.AddToCheckout(_largeSoda);
+            Program.AddToCheckout(Program._largeSoda);
             // Updates list and total
             UpdateCheckoutList();
             UpdateTotal();
@@ -44,7 +36,7 @@ namespace PosSystem
 
         private void PopcornButtonSmall_Click(object sender, EventArgs e)
         {
-            Program.AddToCheckout(_smallPopcorn);
+            Program.AddToCheckout(Program._smallPopcorn);
             // Updates list and total
             UpdateCheckoutList();
             UpdateTotal();
@@ -53,7 +45,7 @@ namespace PosSystem
         // Adds popcorn to the checkout list
         private void PopcornButtonMedium_Click(object sender, EventArgs e)
         {
-            Program.AddToCheckout(_mediumPopcorn);
+            Program.AddToCheckout(Program._mediumPopcorn);
             // Updates list and total
             UpdateCheckoutList();
             UpdateTotal();
@@ -61,7 +53,7 @@ namespace PosSystem
 
         private void PopcornButtonLarge_Click(object sender, EventArgs e)
         {
-            Program.AddToCheckout(_largePopcorn);
+            Program.AddToCheckout(Program._largePopcorn);
             // Updates list and total
             UpdateCheckoutList();
             UpdateTotal();

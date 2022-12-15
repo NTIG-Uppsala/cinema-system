@@ -252,8 +252,8 @@
         public Button PopcornButtonMedium;
         public Button PopcornButtonLarge;
         public Label TotalText;
-        private TabControl TabControl;
-        private TabPage SnackPage;
-        private TabPage MoviePage;
+        public TabControl TabControl;
+        public TabPage SnackPage;
+        public TabPage MoviePage;
     }
 }
