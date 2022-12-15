@@ -9,10 +9,12 @@ namespace PosSystem
             InitializeComponent();
         }
 
+        //
         // Adds soda to the checkout list
+        //
         private void SodaButtonSmall_Click(object sender, EventArgs e)
         {
-            Program.AddToCheckout(Program._smallSoda);
+            Program.AddToCheckout(Program.SmallSoda);
             // Updates list and total
             UpdateCheckoutList();
             UpdateTotal();
@@ -20,7 +22,7 @@ namespace PosSystem
 
         private void SodaButtonMedium_Click(object sender, EventArgs e)
         {
-            Program.AddToCheckout(Program._mediumSoda);
+            Program.AddToCheckout(Program.MediumSoda);
             // Updates list and total
             UpdateCheckoutList();
             UpdateTotal();
@@ -28,7 +30,7 @@ namespace PosSystem
 
         private void SodaButtonLarge_Click(object sender, EventArgs e)
         {
-            Program.AddToCheckout(Program._largeSoda);
+            Program.AddToCheckout(Program.LargeSoda);
             // Updates list and total
             UpdateCheckoutList();
             UpdateTotal();
@@ -36,16 +38,18 @@ namespace PosSystem
 
         private void PopcornButtonSmall_Click(object sender, EventArgs e)
         {
-            Program.AddToCheckout(Program._smallPopcorn);
+            Program.AddToCheckout(Program.SmallPopcorn);
             // Updates list and total
             UpdateCheckoutList();
             UpdateTotal();
         }
 
+        //
         // Adds popcorn to the checkout list
+        //
         private void PopcornButtonMedium_Click(object sender, EventArgs e)
         {
-            Program.AddToCheckout(Program._mediumPopcorn);
+            Program.AddToCheckout(Program.MediumPopcorn);
             // Updates list and total
             UpdateCheckoutList();
             UpdateTotal();
@@ -53,7 +57,34 @@ namespace PosSystem
 
         private void PopcornButtonLarge_Click(object sender, EventArgs e)
         {
-            Program.AddToCheckout(Program._largePopcorn);
+            Program.AddToCheckout(Program.LargePopcorn);
+            // Updates list and total
+            UpdateCheckoutList();
+            UpdateTotal();
+        }
+
+        //
+        // Adds movie to the checkout list
+        //
+        private void MovieButton1_Click(object sender, EventArgs e)
+        {
+            Program.AddToCheckout(Program.Shrek1);
+            // Updates list and total
+            UpdateCheckoutList();
+            UpdateTotal();
+        }
+
+        private void MovieButton2_Click(object sender, EventArgs e)
+        {
+            Program.AddToCheckout(Program.Shrek2);
+            // Updates list and total
+            UpdateCheckoutList();
+            UpdateTotal();
+        }
+
+        private void MovieButton3_Click(object sender, EventArgs e)
+        {
+            Program.AddToCheckout(Program.Shrek3);
             // Updates list and total
             UpdateCheckoutList();
             UpdateTotal();

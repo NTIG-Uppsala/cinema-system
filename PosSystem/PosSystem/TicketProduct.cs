@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PosSystem
 {
-    internal class TicketProduct : ProductClass
+    public class TicketProduct : ProductClass
     {
         public TicketProduct(string name, decimal price, int vat = 25) : base(name, price, vat)
         {

@@ -52,12 +52,12 @@ namespace PosTests
         [Test]
         public void ReadTicket()
         {
-            _mainWindow.TabControl.SelectedIndex = 1;
+            _mainWindow.TabControl.SelectedTab = _mainWindow.MoviePage;
             _mainWindow.MovieButton1.PerformClick();
             _mainWindow.Pay.PerformClick();
-            Assert.IsTrue(File.Exists($@"{ReceiptFolder}\output1.txt"));
-            StringAssert.Contains("Shrek 1", File.ReadAllText($@"{ReceiptFolder}\output1.txt"));
-            StringAssert.Contains("Plats: ", File.ReadAllText($@"{ReceiptFolder}\output1.txt"));
+            Assert.IsTrue(File.Exists($@"{ReceiptFolder}\output2.txt"));
+            StringAssert.Contains("Shrek 1", File.ReadAllText($@"{ReceiptFolder}\output2.txt"));
+            StringAssert.Contains("Plats: ", File.ReadAllText($@"{ReceiptFolder}\output2.txt"));
         }
     }
 }
