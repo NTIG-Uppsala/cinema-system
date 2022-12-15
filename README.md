@@ -1,8 +1,12 @@
 # Cinema system
 A POS system for the cinema industry.
 
+When running, the program will write receipts to the folder `PosReceipts` in the user's documents folder.
+
 ## Setup
 To set up Visual Studio for this project: run the `setup.bat` file in setup folder.
+
+To install the client program, run the `setup.exe` file from a release.
 
 ## Install the program
 To install the program, install the `Install.zip` file in releases.
