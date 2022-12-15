@@ -4,6 +4,7 @@ namespace PosTests
 {
     public class Tests
     {
+        private string ReceiptFolder = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\PosReceipts";
         private MainWindow _mainWindow;
 
         [SetUp]
@@ -40,14 +41,23 @@ namespace PosTests
         [Test]
         public void ReadOutputFile()
         {
-            string ReceiptFolder = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\\PosReceipts";
-            
             _mainWindow.PopcornButtonSmall.PerformClick();
             _mainWindow.SodaButtonSmall.PerformClick();
             _mainWindow.Pay.PerformClick();
-            Assert.IsTrue(File.Exists($"{ReceiptFolder}\\output1.txt"));
-            StringAssert.Contains("Popcorn Liten", File.ReadAllText($"{ReceiptFolder}\\output1.txt"));
-            StringAssert.Contains("Läsk Liten", File.ReadAllText($"{ReceiptFolder}\\output1.txt"));
+            Assert.IsTrue(File.Exists($@"{ReceiptFolder}\output1.txt"));
+            StringAssert.Contains("Popcorn Liten", File.ReadAllText($@"{ReceiptFolder}\output1.txt"));
+            StringAssert.Contains("Läsk Liten", File.ReadAllText($@"{ReceiptFolder}\output1.txt"));
+        }
+
+        [Test]
+        public void ReadTicket()
+        {
+            _mainWindow.TabControl.SelectedIndex = 1;
+            _mainWindow.MovieButton1.PerformClick();
+            _mainWindow.Pay.PerformClick();
+            Assert.IsTrue(File.Exists($@"{ReceiptFolder}\output1.txt"));
+            StringAssert.Contains("Shrek 1", File.ReadAllText($@"{ReceiptFolder}\output1.txt"));
+            StringAssert.Contains("Plats: ", File.ReadAllText($@"{ReceiptFolder}\output1.txt"));
         }
     }
 }
