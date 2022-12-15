@@ -37,10 +37,12 @@
             this.SodaButtonLarge = new System.Windows.Forms.Button();
             this.PopcornButtonMedium = new System.Windows.Forms.Button();
             this.PopcornButtonLarge = new System.Windows.Forms.Button();
-            this.SnacksButton = new System.Windows.Forms.Button();
-            this.MovieButton = new System.Windows.Forms.Button();
-            this.OtherButton = new System.Windows.Forms.Button();
             this.TotalText = new System.Windows.Forms.Label();
+            this.TabControl = new System.Windows.Forms.TabControl();
+            this.SnackPage = new System.Windows.Forms.TabPage();
+            this.MoviePage = new System.Windows.Forms.TabPage();
+            this.TabControl.SuspendLayout();
+            this.SnackPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // PopcornButtonSmall
@@ -48,10 +50,9 @@
             this.PopcornButtonSmall.BackColor = System.Drawing.Color.Yellow;
             this.PopcornButtonSmall.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.PopcornButtonSmall.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PopcornButtonSmall.Location = new System.Drawing.Point(584, 160);
-            this.PopcornButtonSmall.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PopcornButtonSmall.Location = new System.Drawing.Point(664, 168);
             this.PopcornButtonSmall.Name = "PopcornButtonSmall";
-            this.PopcornButtonSmall.Size = new System.Drawing.Size(100, 100);
+            this.PopcornButtonSmall.Size = new System.Drawing.Size(114, 133);
             this.PopcornButtonSmall.TabIndex = 0;
             this.PopcornButtonSmall.Text = "Popcorn\r\nLiten";
             this.PopcornButtonSmall.UseVisualStyleBackColor = false;
@@ -62,10 +63,9 @@
             this.SodaButtonSmall.BackColor = System.Drawing.Color.Fuchsia;
             this.SodaButtonSmall.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SodaButtonSmall.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SodaButtonSmall.Location = new System.Drawing.Point(130, 160);
-            this.SodaButtonSmall.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SodaButtonSmall.Location = new System.Drawing.Point(146, 168);
             this.SodaButtonSmall.Name = "SodaButtonSmall";
-            this.SodaButtonSmall.Size = new System.Drawing.Size(100, 100);
+            this.SodaButtonSmall.Size = new System.Drawing.Size(114, 133);
             this.SodaButtonSmall.TabIndex = 1;
             this.SodaButtonSmall.Text = "Läsk\r\nLiten";
             this.SodaButtonSmall.UseVisualStyleBackColor = false;
@@ -75,11 +75,10 @@
             // 
             this.CheckoutList.Font = new System.Drawing.Font("Trebuchet MS", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CheckoutList.FormattingEnabled = true;
-            this.CheckoutList.ItemHeight = 35;
-            this.CheckoutList.Location = new System.Drawing.Point(1085, 0);
-            this.CheckoutList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CheckoutList.ItemHeight = 42;
+            this.CheckoutList.Location = new System.Drawing.Point(1240, 0);
             this.CheckoutList.Name = "CheckoutList";
-            this.CheckoutList.Size = new System.Drawing.Size(405, 809);
+            this.CheckoutList.Size = new System.Drawing.Size(462, 1054);
             this.CheckoutList.TabIndex = 2;
             // 
             // Clear
@@ -90,10 +89,10 @@
             this.Clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Clear.Font = new System.Drawing.Font("Trebuchet MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Clear.ForeColor = System.Drawing.Color.White;
-            this.Clear.Location = new System.Drawing.Point(1085, 881);
+            this.Clear.Location = new System.Drawing.Point(1240, 1175);
             this.Clear.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(221, 132);
+            this.Clear.Size = new System.Drawing.Size(253, 176);
             this.Clear.TabIndex = 3;
             this.Clear.Text = "Rensa";
             this.Clear.UseVisualStyleBackColor = false;
@@ -107,10 +106,9 @@
             this.Pay.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Pay.Font = new System.Drawing.Font("Trebuchet MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Pay.ForeColor = System.Drawing.Color.White;
-            this.Pay.Location = new System.Drawing.Point(1291, 881);
-            this.Pay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Pay.Location = new System.Drawing.Point(1475, 1175);
             this.Pay.Name = "Pay";
-            this.Pay.Size = new System.Drawing.Size(200, 132);
+            this.Pay.Size = new System.Drawing.Size(229, 176);
             this.Pay.TabIndex = 4;
             this.Pay.Text = "Betala";
             this.Pay.UseVisualStyleBackColor = false;
@@ -121,10 +119,9 @@
             this.SodaButtonMedium.BackColor = System.Drawing.Color.Fuchsia;
             this.SodaButtonMedium.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SodaButtonMedium.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SodaButtonMedium.Location = new System.Drawing.Point(261, 160);
-            this.SodaButtonMedium.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SodaButtonMedium.Location = new System.Drawing.Point(295, 168);
             this.SodaButtonMedium.Name = "SodaButtonMedium";
-            this.SodaButtonMedium.Size = new System.Drawing.Size(100, 100);
+            this.SodaButtonMedium.Size = new System.Drawing.Size(114, 133);
             this.SodaButtonMedium.TabIndex = 6;
             this.SodaButtonMedium.Text = "Läsk\r\nMellan";
             this.SodaButtonMedium.UseVisualStyleBackColor = false;
@@ -135,10 +132,9 @@
             this.SodaButtonLarge.BackColor = System.Drawing.Color.Fuchsia;
             this.SodaButtonLarge.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SodaButtonLarge.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SodaButtonLarge.Location = new System.Drawing.Point(393, 160);
-            this.SodaButtonLarge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SodaButtonLarge.Location = new System.Drawing.Point(446, 168);
             this.SodaButtonLarge.Name = "SodaButtonLarge";
-            this.SodaButtonLarge.Size = new System.Drawing.Size(100, 100);
+            this.SodaButtonLarge.Size = new System.Drawing.Size(114, 133);
             this.SodaButtonLarge.TabIndex = 7;
             this.SodaButtonLarge.Text = "Läsk\r\nStor";
             this.SodaButtonLarge.UseVisualStyleBackColor = false;
@@ -149,10 +145,9 @@
             this.PopcornButtonMedium.BackColor = System.Drawing.Color.Yellow;
             this.PopcornButtonMedium.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.PopcornButtonMedium.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PopcornButtonMedium.Location = new System.Drawing.Point(719, 160);
-            this.PopcornButtonMedium.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PopcornButtonMedium.Location = new System.Drawing.Point(819, 168);
             this.PopcornButtonMedium.Name = "PopcornButtonMedium";
-            this.PopcornButtonMedium.Size = new System.Drawing.Size(100, 100);
+            this.PopcornButtonMedium.Size = new System.Drawing.Size(114, 133);
             this.PopcornButtonMedium.TabIndex = 8;
             this.PopcornButtonMedium.Text = "Popcorn\rMellan";
             this.PopcornButtonMedium.UseVisualStyleBackColor = false;
@@ -163,51 +158,13 @@
             this.PopcornButtonLarge.BackColor = System.Drawing.Color.Yellow;
             this.PopcornButtonLarge.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.PopcornButtonLarge.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PopcornButtonLarge.Location = new System.Drawing.Point(851, 160);
-            this.PopcornButtonLarge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PopcornButtonLarge.Location = new System.Drawing.Point(970, 168);
             this.PopcornButtonLarge.Name = "PopcornButtonLarge";
-            this.PopcornButtonLarge.Size = new System.Drawing.Size(100, 100);
+            this.PopcornButtonLarge.Size = new System.Drawing.Size(114, 133);
             this.PopcornButtonLarge.TabIndex = 9;
             this.PopcornButtonLarge.Text = "Popcorn\rStor";
             this.PopcornButtonLarge.UseVisualStyleBackColor = false;
             this.PopcornButtonLarge.Click += new System.EventHandler(this.PopcornButtonLarge_Click);
-            // 
-            // SnacksButton
-            // 
-            this.SnacksButton.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.SnacksButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SnacksButton.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SnacksButton.Location = new System.Drawing.Point(-2, 0);
-            this.SnacksButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.SnacksButton.Name = "SnacksButton";
-            this.SnacksButton.Size = new System.Drawing.Size(362, 115);
-            this.SnacksButton.TabIndex = 10;
-            this.SnacksButton.Text = "Ätbart";
-            this.SnacksButton.UseVisualStyleBackColor = false;
-            // 
-            // MovieButton
-            // 
-            this.MovieButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.MovieButton.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MovieButton.Location = new System.Drawing.Point(360, 0);
-            this.MovieButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MovieButton.Name = "MovieButton";
-            this.MovieButton.Size = new System.Drawing.Size(366, 115);
-            this.MovieButton.TabIndex = 11;
-            this.MovieButton.Text = "Filmer";
-            this.MovieButton.UseVisualStyleBackColor = true;
-            // 
-            // OtherButton
-            // 
-            this.OtherButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.OtherButton.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OtherButton.Location = new System.Drawing.Point(723, 0);
-            this.OtherButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.OtherButton.Name = "OtherButton";
-            this.OtherButton.Size = new System.Drawing.Size(362, 115);
-            this.OtherButton.TabIndex = 12;
-            this.OtherButton.Text = "Övrigt";
-            this.OtherButton.UseVisualStyleBackColor = true;
             // 
             // TotalText
             // 
@@ -215,36 +172,69 @@
             this.TotalText.BackColor = System.Drawing.Color.Black;
             this.TotalText.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TotalText.ForeColor = System.Drawing.Color.White;
-            this.TotalText.Location = new System.Drawing.Point(1085, 808);
-            this.TotalText.MaximumSize = new System.Drawing.Size(406, 73);
-            this.TotalText.MinimumSize = new System.Drawing.Size(406, 73);
+            this.TotalText.Location = new System.Drawing.Point(1240, 1077);
+            this.TotalText.MaximumSize = new System.Drawing.Size(464, 97);
+            this.TotalText.MinimumSize = new System.Drawing.Size(464, 97);
             this.TotalText.Name = "TotalText";
-            this.TotalText.Padding = new System.Windows.Forms.Padding(0, 11, 0, 0);
-            this.TotalText.Size = new System.Drawing.Size(406, 73);
+            this.TotalText.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.TotalText.Size = new System.Drawing.Size(464, 97);
             this.TotalText.TabIndex = 13;
             this.TotalText.Text = "Totalt: 0kr";
             // 
+            // TabControl
+            // 
+            this.TabControl.Controls.Add(this.SnackPage);
+            this.TabControl.Controls.Add(this.MoviePage);
+            this.TabControl.Font = new System.Drawing.Font("Trebuchet MS", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TabControl.ItemSize = new System.Drawing.Size(200, 85);
+            this.TabControl.Location = new System.Drawing.Point(0, 0);
+            this.TabControl.Name = "TabControl";
+            this.TabControl.SelectedIndex = 0;
+            this.TabControl.Size = new System.Drawing.Size(1241, 1351);
+            this.TabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.TabControl.TabIndex = 14;
+            // 
+            // SnackPage
+            // 
+            this.SnackPage.Controls.Add(this.SodaButtonLarge);
+            this.SnackPage.Controls.Add(this.PopcornButtonSmall);
+            this.SnackPage.Controls.Add(this.PopcornButtonLarge);
+            this.SnackPage.Controls.Add(this.SodaButtonSmall);
+            this.SnackPage.Controls.Add(this.PopcornButtonMedium);
+            this.SnackPage.Controls.Add(this.SodaButtonMedium);
+            this.SnackPage.Location = new System.Drawing.Point(4, 89);
+            this.SnackPage.Name = "SnackPage";
+            this.SnackPage.Padding = new System.Windows.Forms.Padding(3);
+            this.SnackPage.Size = new System.Drawing.Size(1233, 1258);
+            this.SnackPage.TabIndex = 0;
+            this.SnackPage.Text = "Ätbart";
+            this.SnackPage.UseVisualStyleBackColor = true;
+            // 
+            // MoviePage
+            // 
+            this.MoviePage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.MoviePage.Location = new System.Drawing.Point(4, 89);
+            this.MoviePage.Name = "MoviePage";
+            this.MoviePage.Padding = new System.Windows.Forms.Padding(3);
+            this.MoviePage.Size = new System.Drawing.Size(1233, 1258);
+            this.MoviePage.TabIndex = 1;
+            this.MoviePage.Text = "Filmer";
+            this.MoviePage.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1490, 1013);
+            this.ClientSize = new System.Drawing.Size(1703, 1351);
+            this.Controls.Add(this.TabControl);
             this.Controls.Add(this.TotalText);
-            this.Controls.Add(this.OtherButton);
-            this.Controls.Add(this.MovieButton);
-            this.Controls.Add(this.SnacksButton);
-            this.Controls.Add(this.PopcornButtonLarge);
-            this.Controls.Add(this.PopcornButtonMedium);
-            this.Controls.Add(this.SodaButtonLarge);
-            this.Controls.Add(this.SodaButtonMedium);
             this.Controls.Add(this.Pay);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.CheckoutList);
-            this.Controls.Add(this.SodaButtonSmall);
-            this.Controls.Add(this.PopcornButtonSmall);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainWindow";
             this.Text = "Cinema POS System";
+            this.TabControl.ResumeLayout(false);
+            this.SnackPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,9 +251,9 @@
         public Button SodaButtonLarge;
         public Button PopcornButtonMedium;
         public Button PopcornButtonLarge;
-        public Button SnacksButton;
-        public Button MovieButton;
-        public Button OtherButton;
         public Label TotalText;
+        private TabControl TabControl;
+        private TabPage SnackPage;
+        private TabPage MoviePage;
     }
 }
