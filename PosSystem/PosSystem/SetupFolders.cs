@@ -20,6 +20,7 @@ namespace PosSystem
             {
                 List<string> products = new List<string>()
                 {
+                    "Produktnamn,Pris,Moms",
                     "Popcorn Liten,25,",
                     "Popcorn Mellan,35,",
                     "Popcorn Stor,50,",
