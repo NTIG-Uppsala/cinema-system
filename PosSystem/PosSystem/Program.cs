@@ -33,22 +33,7 @@ namespace PosSystem
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             new SetupFolders();
-            CreateButtons();
             Application.Run(new MainWindow());
-        }
-
-        public static Products products = new();
-
-        // Create buttons
-        public static void CreateButtons()
-        {
-            for (int i = 0; i < products.productList.Count; i++)
-            {
-                var product = products.productList[i];
-                Debug.WriteLine(product.Name);
-                Debug.WriteLine(product.Price);
-                Debug.WriteLine(product.Vat);
-            }
         }
 
         public static void AddToCheckout(ProductClass product)

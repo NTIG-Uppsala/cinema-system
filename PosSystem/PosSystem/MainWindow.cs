@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace PosSystem
@@ -7,6 +8,46 @@ namespace PosSystem
         public MainWindow()
         {
             InitializeComponent();
+            CreateButtons();
+        }
+
+        public static Products products = new();
+
+        // Create buttons
+
+        public void CreateButtons()
+        {
+
+            for (int i = 0; i < products.productList.Count; i++)
+            {
+                var product = products.productList[i];
+                Debug.WriteLine(product.Name);
+                Debug.WriteLine(product.Price);
+                Debug.WriteLine(product.Vat);
+
+                var button = new ProductButton(product);
+                button.Text = product.Name;
+                button.Size = new Size(100, 100);
+                button.Font = new Font("Trebuchet MS", 12);
+                button.Click += updateCheckout;
+
+                SnackLayout.Controls.Add(button);
+            }
+        }
+
+        private void updateCheckout(object sender, EventArgs e)
+        {
+
+            var button = sender as ProductButton; 
+            
+            if (button == null)
+            {
+                throw new NullReferenceException("sender is not ProductButton");
+            }
+            
+            Program.AddToCheckout(button.product);
+            UpdateCheckoutList();
+            UpdateTotal();
         }
 
         //
