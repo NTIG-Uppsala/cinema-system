@@ -51,60 +51,6 @@ namespace PosSystem
         }
 
         //
-        // Adds soda to the checkout list
-        //
-        private void SodaButtonSmall_Click(object sender, EventArgs e)
-        {
-            Program.AddToCheckout(Program.SmallSoda);
-            // Updates list and total
-            UpdateCheckoutList();
-            UpdateTotal();
-        }
-
-        private void SodaButtonMedium_Click(object sender, EventArgs e)
-        {
-            Program.AddToCheckout(Program.MediumSoda);
-            // Updates list and total
-            UpdateCheckoutList();
-            UpdateTotal();
-        }
-
-        private void SodaButtonLarge_Click(object sender, EventArgs e)
-        {
-            Program.AddToCheckout(Program.LargeSoda);
-            // Updates list and total
-            UpdateCheckoutList();
-            UpdateTotal();
-        }
-
-        private void PopcornButtonSmall_Click(object sender, EventArgs e)
-        {
-            Program.AddToCheckout(Program.SmallPopcorn);
-            // Updates list and total
-            UpdateCheckoutList();
-            UpdateTotal();
-        }
-
-        //
-        // Adds popcorn to the checkout list
-        //
-        private void PopcornButtonMedium_Click(object sender, EventArgs e)
-        {
-            Program.AddToCheckout(Program.MediumPopcorn);
-            // Updates list and total
-            UpdateCheckoutList();
-            UpdateTotal();
-        }
-
-        private void PopcornButtonLarge_Click(object sender, EventArgs e)
-        {
-            Program.AddToCheckout(Program.LargePopcorn);
-            // Updates list and total
-            UpdateCheckoutList();
-            UpdateTotal();
-        }
-
-        //
         // Adds movie to the checkout list
         //
         private void MovieButton1_Click(object sender, EventArgs e)

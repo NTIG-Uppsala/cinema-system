@@ -11,13 +11,6 @@ namespace PosSystem
         public static int ReceiptId = 1;
         public static int SeatPosition = 1;
 
-        public static readonly ProductClass SmallPopcorn = new("Popcorn Liten", 25m);
-        public static readonly ProductClass SmallSoda = new("Läsk Liten", 20m);
-        public static readonly ProductClass MediumPopcorn = new("Popcorn Mellan", 35m);
-        public static readonly ProductClass MediumSoda = new("Läsk Mellan", 25m);
-        public static readonly ProductClass LargePopcorn = new("Popcorn Stor", 50m);
-        public static readonly ProductClass LargeSoda = new("Läsk Stor", 35m);
-
         public static readonly TicketProduct Shrek1 = new("Biljett - Shrek 1", 170m, 25);
         public static readonly TicketProduct Shrek2 = new("Biljett - Shrek 2", 170m, 25);
         public static readonly TicketProduct Shrek3 = new("Biljett - Shrek 3", 170m, 25);

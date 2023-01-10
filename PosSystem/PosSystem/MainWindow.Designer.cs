@@ -35,12 +35,6 @@
             this.TabControl = new System.Windows.Forms.TabControl();
             this.SnackPage = new System.Windows.Forms.TabPage();
             this.SnackLayout = new System.Windows.Forms.FlowLayoutPanel();
-            this.SodaButtonSmall = new System.Windows.Forms.Button();
-            this.SodaButtonMedium = new System.Windows.Forms.Button();
-            this.SodaButtonLarge = new System.Windows.Forms.Button();
-            this.PopcornButtonSmall = new System.Windows.Forms.Button();
-            this.PopcornButtonMedium = new System.Windows.Forms.Button();
-            this.PopcornButtonLarge = new System.Windows.Forms.Button();
             this.MoviePage = new System.Windows.Forms.TabPage();
             this.MovieLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.MovieButton1 = new System.Windows.Forms.Button();
@@ -48,7 +42,6 @@
             this.MovieButton3 = new System.Windows.Forms.Button();
             this.TabControl.SuspendLayout();
             this.SnackPage.SuspendLayout();
-            this.SnackLayout.SuspendLayout();
             this.MoviePage.SuspendLayout();
             this.MovieLayout.SuspendLayout();
             this.SuspendLayout();
@@ -141,101 +134,11 @@
             // 
             // SnackLayout
             // 
-            this.SnackLayout.Controls.Add(this.SodaButtonSmall);
-            this.SnackLayout.Controls.Add(this.SodaButtonMedium);
-            this.SnackLayout.Controls.Add(this.SodaButtonLarge);
-            this.SnackLayout.Controls.Add(this.PopcornButtonSmall);
-            this.SnackLayout.Controls.Add(this.PopcornButtonMedium);
-            this.SnackLayout.Controls.Add(this.PopcornButtonLarge);
             this.SnackLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SnackLayout.Location = new System.Drawing.Point(3, 2);
             this.SnackLayout.Name = "SnackLayout";
             this.SnackLayout.Size = new System.Drawing.Size(1072, 916);
             this.SnackLayout.TabIndex = 10;
-            // 
-            // SodaButtonSmall
-            // 
-            this.SodaButtonSmall.BackColor = System.Drawing.Color.Fuchsia;
-            this.SodaButtonSmall.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SodaButtonSmall.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SodaButtonSmall.Location = new System.Drawing.Point(3, 2);
-            this.SodaButtonSmall.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.SodaButtonSmall.Name = "SodaButtonSmall";
-            this.SodaButtonSmall.Size = new System.Drawing.Size(100, 100);
-            this.SodaButtonSmall.TabIndex = 1;
-            this.SodaButtonSmall.Text = "Läsk\r\nLiten";
-            this.SodaButtonSmall.UseVisualStyleBackColor = false;
-            this.SodaButtonSmall.Click += new System.EventHandler(this.SodaButtonSmall_Click);
-            // 
-            // SodaButtonMedium
-            // 
-            this.SodaButtonMedium.BackColor = System.Drawing.Color.Fuchsia;
-            this.SodaButtonMedium.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SodaButtonMedium.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SodaButtonMedium.Location = new System.Drawing.Point(109, 2);
-            this.SodaButtonMedium.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.SodaButtonMedium.Name = "SodaButtonMedium";
-            this.SodaButtonMedium.Size = new System.Drawing.Size(100, 100);
-            this.SodaButtonMedium.TabIndex = 6;
-            this.SodaButtonMedium.Text = "Läsk\r\nMellan";
-            this.SodaButtonMedium.UseVisualStyleBackColor = false;
-            this.SodaButtonMedium.Click += new System.EventHandler(this.SodaButtonMedium_Click);
-            // 
-            // SodaButtonLarge
-            // 
-            this.SodaButtonLarge.BackColor = System.Drawing.Color.Fuchsia;
-            this.SodaButtonLarge.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.SodaButtonLarge.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.SodaButtonLarge.Location = new System.Drawing.Point(215, 2);
-            this.SodaButtonLarge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.SodaButtonLarge.Name = "SodaButtonLarge";
-            this.SodaButtonLarge.Size = new System.Drawing.Size(100, 100);
-            this.SodaButtonLarge.TabIndex = 7;
-            this.SodaButtonLarge.Text = "Läsk\r\nStor";
-            this.SodaButtonLarge.UseVisualStyleBackColor = false;
-            this.SodaButtonLarge.Click += new System.EventHandler(this.SodaButtonLarge_Click);
-            // 
-            // PopcornButtonSmall
-            // 
-            this.PopcornButtonSmall.BackColor = System.Drawing.Color.Yellow;
-            this.PopcornButtonSmall.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.PopcornButtonSmall.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PopcornButtonSmall.Location = new System.Drawing.Point(321, 2);
-            this.PopcornButtonSmall.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PopcornButtonSmall.Name = "PopcornButtonSmall";
-            this.PopcornButtonSmall.Size = new System.Drawing.Size(100, 100);
-            this.PopcornButtonSmall.TabIndex = 0;
-            this.PopcornButtonSmall.Text = "Popcorn\r\nLiten";
-            this.PopcornButtonSmall.UseVisualStyleBackColor = false;
-            this.PopcornButtonSmall.Click += new System.EventHandler(this.PopcornButtonSmall_Click);
-            // 
-            // PopcornButtonMedium
-            // 
-            this.PopcornButtonMedium.BackColor = System.Drawing.Color.Yellow;
-            this.PopcornButtonMedium.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.PopcornButtonMedium.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PopcornButtonMedium.Location = new System.Drawing.Point(427, 2);
-            this.PopcornButtonMedium.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PopcornButtonMedium.Name = "PopcornButtonMedium";
-            this.PopcornButtonMedium.Size = new System.Drawing.Size(100, 100);
-            this.PopcornButtonMedium.TabIndex = 8;
-            this.PopcornButtonMedium.Text = "Popcorn\rMellan";
-            this.PopcornButtonMedium.UseVisualStyleBackColor = false;
-            this.PopcornButtonMedium.Click += new System.EventHandler(this.PopcornButtonMedium_Click);
-            // 
-            // PopcornButtonLarge
-            // 
-            this.PopcornButtonLarge.BackColor = System.Drawing.Color.Yellow;
-            this.PopcornButtonLarge.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.PopcornButtonLarge.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PopcornButtonLarge.Location = new System.Drawing.Point(533, 2);
-            this.PopcornButtonLarge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.PopcornButtonLarge.Name = "PopcornButtonLarge";
-            this.PopcornButtonLarge.Size = new System.Drawing.Size(100, 100);
-            this.PopcornButtonLarge.TabIndex = 9;
-            this.PopcornButtonLarge.Text = "Popcorn\rStor";
-            this.PopcornButtonLarge.UseVisualStyleBackColor = false;
-            this.PopcornButtonLarge.Click += new System.EventHandler(this.PopcornButtonLarge_Click);
             // 
             // MoviePage
             // 
@@ -318,7 +221,6 @@
             this.Text = "Cinema POS System";
             this.TabControl.ResumeLayout(false);
             this.SnackPage.ResumeLayout(false);
-            this.SnackLayout.ResumeLayout(false);
             this.MoviePage.ResumeLayout(false);
             this.MovieLayout.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -335,12 +237,6 @@
         public TabPage MoviePage;
         public TabPage SnackPage;
         private FlowLayoutPanel SnackLayout;
-        public Button SodaButtonSmall;
-        public Button SodaButtonMedium;
-        public Button SodaButtonLarge;
-        public Button PopcornButtonSmall;
-        public Button PopcornButtonMedium;
-        public Button PopcornButtonLarge;
         private FlowLayoutPanel MovieLayout;
         public Button MovieButton1;
         public Button MovieButton2;
