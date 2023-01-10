@@ -27,6 +27,7 @@ namespace PosSystem
 
                 var button = new ProductButton(product);
                 button.Text = product.Name;
+                button.Name = $"button{i}";
                 button.Size = new Size(100, 100);
                 button.Font = new Font("Trebuchet MS", 12);
                 button.Click += updateCheckout;
