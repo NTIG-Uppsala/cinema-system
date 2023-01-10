@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,11 +18,20 @@ namespace PosSystem
 
         public static ProductClass ParseCsv(string csvLine)
         {
+
             string[] values = csvLine.Split(",");
 
-            ProductClass product = new(values[0], decimal.Parse(values[1]), int.Parse(values[2]));
-
-            return product;
+            try
+            {
+                ProductClass product = new(values[0], decimal.Parse(values[1]), int.Parse(values[2]));
+                return product;
+            }
+            catch
+            {
+                ProductClass product = new(values[0], decimal.Parse(values[1]));
+                return product;
+            }
         }
+
     }
 }

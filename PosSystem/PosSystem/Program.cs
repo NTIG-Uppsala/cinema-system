@@ -22,6 +22,7 @@ namespace PosSystem
         public static readonly TicketProduct Shrek2 = new("Biljett - Shrek 2", 170m, 25);
         public static readonly TicketProduct Shrek3 = new("Biljett - Shrek 3", 170m, 25);
 
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -32,7 +33,22 @@ namespace PosSystem
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             new SetupFolders();
+            CreateButtons();
             Application.Run(new MainWindow());
+        }
+
+        public static Products products = new();
+
+        // Create buttons
+        public static void CreateButtons()
+        {
+            for (int i = 0; i < products.productList.Count; i++)
+            {
+                var product = products.productList[i];
+                Debug.WriteLine(product.Name);
+                Debug.WriteLine(product.Price);
+                Debug.WriteLine(product.Vat);
+            }
         }
 
         public static void AddToCheckout(ProductClass product)
