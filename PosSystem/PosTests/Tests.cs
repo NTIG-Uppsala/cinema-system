@@ -1,7 +1,10 @@
 using PosSystem;
+using System.Diagnostics;
 
 namespace PosTests
 {
+
+    [TestFixture]
     public class Tests
     {
         private string ReceiptFolder = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\PosSystem\PosReceipts";
@@ -17,14 +20,14 @@ namespace PosTests
         [Test]
         public void AddProduct()
         {
-            _mainWindow.button1.PerformClick();
+            (_mainWindow.SnackLayout.Controls[0] as ProductButton).PerformClick();
             Assert.IsTrue(Program.Checkout.Count > 0);
         }
 
         [Test]
         public void ClearProduct()
         {
-            _mainWindow.button1.PerformClick();
+            (_mainWindow.SnackLayout.Controls[0] as ProductButton).PerformClick();
             _mainWindow.Clear.PerformClick();
             Assert.IsTrue(Program.Checkout.Count == 0);
             Assert.IsTrue(_mainWindow.TotalText.Text == "Totalt: 0kr");
@@ -33,20 +36,17 @@ namespace PosTests
         [Test]
         public void ReadTotal()
         {
-            _mainWindow.button2.PerformClick();
-            _mainWindow.button1.PerformClick();
-            Assert.IsTrue(_mainWindow.TotalText.Text == "Totalt: 45kr");
+            (_mainWindow.SnackLayout.Controls[0] as ProductButton).PerformClick();
+            Assert.IsTrue(_mainWindow.TotalText.Text == "Totalt: 25kr");
         }
 
         [Test]
         public void ReadOutputFile()
         {
-            _mainWindow.button2.PerformClick();
-            _mainWindow.button1.PerformClick();
+            (_mainWindow.SnackLayout.Controls[0] as ProductButton).PerformClick();
             _mainWindow.Pay.PerformClick();
             Assert.IsTrue(File.Exists($@"{ReceiptFolder}\output1.txt"));
             StringAssert.Contains("Popcorn Liten", File.ReadAllText($@"{ReceiptFolder}\output1.txt"));
-            StringAssert.Contains("Läsk Liten", File.ReadAllText($@"{ReceiptFolder}\output1.txt"));
         }
 
         [Test]

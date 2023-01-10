@@ -236,8 +236,8 @@
         public TabControl TabControl;
         public TabPage MoviePage;
         public TabPage SnackPage;
-        private FlowLayoutPanel SnackLayout;
-        private FlowLayoutPanel MovieLayout;
+        public FlowLayoutPanel SnackLayout;
+        public FlowLayoutPanel MovieLayout;
         public Button MovieButton1;
         public Button MovieButton2;
         public Button MovieButton3;
