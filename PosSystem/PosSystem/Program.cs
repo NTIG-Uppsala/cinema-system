@@ -49,7 +49,7 @@ namespace PosSystem
 
         public static void WriteReceipt()
         {
-            string receiptFolder = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\PosReceipts";
+            string receiptFolder = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\PosSystem\PosReceipts";
             Directory.CreateDirectory(receiptFolder);
             var currentDateTime = DateTime.Now;
 
