@@ -9,9 +9,15 @@ namespace PosSystem
 {
     public class Products
     {
-        private static string csvLocation = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\PosSystem\products.csv";
+        private static string csvLocationProducts = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\PosSystem\products.csv";
+        private static string csvLocationMovies = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\PosSystem\movies.csv";
 
-        public List<ProductClass> productList = File.ReadAllLines(csvLocation)
+        public List<ProductClass> productList = File.ReadAllLines(csvLocationProducts)
+                                                    .Skip(1)
+                                                    .Select(v => ParseCsv(v))
+                                                    .ToList();
+
+        public List<ProductClass> moviesList = File.ReadAllLines(csvLocationMovies)
                                                     .Skip(1)
                                                     .Select(v => ParseCsv(v))
                                                     .ToList();

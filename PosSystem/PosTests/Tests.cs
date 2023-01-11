@@ -53,7 +53,7 @@ namespace PosTests
         public void ReadTicket()
         {
             _mainWindow.TabControl.SelectedTab = _mainWindow.MoviePage;
-            _mainWindow.MovieButton1.PerformClick();
+            (_mainWindow.MovieLayout.Controls[0] as ProductButton).PerformClick();
             _mainWindow.Pay.PerformClick();
             Assert.IsTrue(File.Exists($@"{ReceiptFolder}\output2.txt"));
             StringAssert.Contains("Shrek 1", File.ReadAllText($@"{ReceiptFolder}\output2.txt"));

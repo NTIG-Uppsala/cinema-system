@@ -11,10 +11,6 @@ namespace PosSystem
         public static int ReceiptId = 1;
         public static int SeatPosition = 1;
 
-        public static readonly TicketProduct Shrek1 = new("Biljett - Shrek 1", 170m, 25);
-        public static readonly TicketProduct Shrek2 = new("Biljett - Shrek 2", 170m, 25);
-        public static readonly TicketProduct Shrek3 = new("Biljett - Shrek 3", 170m, 25);
-
 
         /// <summary>
         ///  The main entry point for the application.
@@ -123,6 +119,7 @@ namespace PosSystem
                 {
                     for (int i = 0; i < product.Value; i++)
                     {
+                        Debug.WriteLine(SeatPosition);
                         receipt.Add("\n-----------------------------------------------------\n");
                         receipt.Add($"{product.Key.Name.Replace("Biljett - ", "")}");
                         receipt.Add($"Datum: {currentDateTime.AddHours(1).ToString("yyyy-MM-dd HH:00")}");

@@ -18,6 +18,7 @@ namespace PosSystem
         public void CreateButtons()
         {
 
+            // Product buttons
             for (int i = 0; i < products.productList.Count; i++)
             {
                 var product = products.productList[i];
@@ -34,6 +35,24 @@ namespace PosSystem
 
                 SnackLayout.Controls.Add(button);
             }
+
+            // Movie buttons
+            for (int i = 0; i < products.moviesList.Count; i++)
+            {
+                var product = products.moviesList[i];
+                Debug.WriteLine(product.Name);
+                Debug.WriteLine(product.Price);
+                Debug.WriteLine(product.Vat);
+
+                var button = new ProductButton(product);
+                button.Text = product.Name;
+                button.Name = $"button{i}";
+                button.Size = new Size(100, 100);
+                button.Font = new Font("Trebuchet MS", 12);
+                button.Click += updateCheckout;
+
+                MovieLayout.Controls.Add(button);
+            }
         }
 
         private void updateCheckout(object sender, EventArgs e)
@@ -47,33 +66,6 @@ namespace PosSystem
             }
             
             Program.AddToCheckout(button.product);
-            UpdateCheckoutList();
-            UpdateTotal();
-        }
-
-        //
-        // Adds movie to the checkout list
-        //
-        private void MovieButton1_Click(object sender, EventArgs e)
-        {
-            Program.AddToCheckout(Program.Shrek1);
-            // Updates list and total
-            UpdateCheckoutList();
-            UpdateTotal();
-        }
-
-        private void MovieButton2_Click(object sender, EventArgs e)
-        {
-            Program.AddToCheckout(Program.Shrek2);
-            // Updates list and total
-            UpdateCheckoutList();
-            UpdateTotal();
-        }
-
-        private void MovieButton3_Click(object sender, EventArgs e)
-        {
-            Program.AddToCheckout(Program.Shrek3);
-            // Updates list and total
             UpdateCheckoutList();
             UpdateTotal();
         }
