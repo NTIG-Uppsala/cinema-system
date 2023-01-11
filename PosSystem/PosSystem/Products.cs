@@ -29,12 +29,12 @@ namespace PosSystem
 
             try
             {
-                ProductClass product = new(values[0], decimal.Parse(values[1]), int.Parse(values[2]));
+                ProductClass product = new(values[0], decimal.Parse(values[1]), values[2], int.Parse(values[3]));
                 return product;
             }
             catch
             {
-                ProductClass product = new(values[0], decimal.Parse(values[1]));
+                ProductClass product = new(values[0], decimal.Parse(values[1]), values[2]);
                 return product;
             }
         }

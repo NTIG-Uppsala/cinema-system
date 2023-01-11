@@ -20,13 +20,13 @@ namespace PosSystem
             {
                 List<string> products = new List<string>()
                 {
-                    "Produktnamn,Pris,Moms",
-                    "Popcorn Liten,25,",
-                    "Popcorn Mellan,35,",
-                    "Popcorn Stor,50,",
-                    "Läsk Liten,20,",
-                    "Läsk Mellan,25,",
-                    "Läsk Stor,35,",
+                    "Produktnamn,Pris,Färg,Moms",
+                    "Popcorn Liten,25,Red,",
+                    "Popcorn Mellan,35,Red,",
+                    "Popcorn Stor,50,Red,",
+                    "Läsk Liten,20,Red,",
+                    "Läsk Mellan,25,Red,",
+                    "Läsk Stor,35,Red,",
                 };
 
                 File.WriteAllLines($@"{baseFolder}\products.csv", products);
@@ -36,10 +36,10 @@ namespace PosSystem
             {
                 List<string> products = new List<string>()
                 {
-                    "Filmnamn,Pris,Moms",
-                    "Shrek 1,170,",
-                    "Shrek 2,170,",
-                    "Shrek 3,170,",
+                    "Filmnamn,Pris,Färg,Moms",
+                    "Shrek 1,170,Red,",
+                    "Shrek 2,170,Red,",
+                    "Shrek 3,170,Red,",
                 };
 
                 File.WriteAllLines($@"{baseFolder}\movies.csv", products);

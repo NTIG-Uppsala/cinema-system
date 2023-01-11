@@ -29,6 +29,7 @@ namespace PosSystem
                 var button = new ProductButton(product);
                 button.Text = product.Name;
                 button.Name = $"button{i}";
+                button.BackColor = ColorTranslator.FromHtml(product.Color);
                 button.Size = new Size(100, 100);
                 button.Font = new Font("Trebuchet MS", 12);
                 button.Click += updateCheckout;
@@ -47,6 +48,7 @@ namespace PosSystem
                 var button = new ProductButton(product);
                 button.Text = product.Name;
                 button.Name = $"button{i}";
+                button.BackColor = ColorTranslator.FromHtml(product.Color);
                 button.Size = new Size(100, 100);
                 button.Font = new Font("Trebuchet MS", 12);
                 button.Click += updateCheckout;
