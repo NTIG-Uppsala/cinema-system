@@ -41,19 +41,11 @@ namespace PosSystem
             for (int i = 0; i < products.moviesList.Count; i++)
             {
                 var product = products.moviesList[i];
-                Debug.WriteLine(product.Name);
-                Debug.WriteLine(product.Price);
-                Debug.WriteLine(product.Vat);
 
-                var button = new ProductButton(product);
-                button.Text = product.Name;
-                button.Name = $"button{i}";
-                button.BackColor = ColorTranslator.FromHtml(product.Color);
-                button.Size = new Size(100, 100);
-                button.Font = new Font("Trebuchet MS", 12);
-                button.Click += updateCheckout;
 
-                MovieLayout.Controls.Add(button);
+                TabPage tabpage = new TabPage();
+                tabpage.Text = product.Name;
+                tabControl1.Controls.Add(tabpage);
             }
         }
 
@@ -101,6 +93,11 @@ namespace PosSystem
             Program.ClearCheckout();
             this.CheckoutList.Items.Clear();
             this.TotalText.Text = "Totalt: 0kr";
+        }
+
+        private void MovieLayout_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

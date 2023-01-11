@@ -36,20 +36,24 @@
             this.SnackPage = new System.Windows.Forms.TabPage();
             this.SnackLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.MoviePage = new System.Windows.Forms.TabPage();
-            this.MovieLayout = new System.Windows.Forms.FlowLayoutPanel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.TabControl.SuspendLayout();
             this.SnackPage.SuspendLayout();
             this.MoviePage.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // CheckoutList
             // 
             this.CheckoutList.Font = new System.Drawing.Font("Trebuchet MS", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CheckoutList.FormattingEnabled = true;
-            this.CheckoutList.ItemHeight = 42;
-            this.CheckoutList.Location = new System.Drawing.Point(1240, 0);
+            this.CheckoutList.ItemHeight = 35;
+            this.CheckoutList.Location = new System.Drawing.Point(1085, 0);
+            this.CheckoutList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CheckoutList.Name = "CheckoutList";
-            this.CheckoutList.Size = new System.Drawing.Size(462, 1054);
+            this.CheckoutList.Size = new System.Drawing.Size(405, 774);
             this.CheckoutList.TabIndex = 2;
             // 
             // Clear
@@ -60,10 +64,10 @@
             this.Clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Clear.Font = new System.Drawing.Font("Trebuchet MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Clear.ForeColor = System.Drawing.Color.White;
-            this.Clear.Location = new System.Drawing.Point(1240, 1175);
+            this.Clear.Location = new System.Drawing.Point(1085, 881);
             this.Clear.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(253, 176);
+            this.Clear.Size = new System.Drawing.Size(221, 132);
             this.Clear.TabIndex = 3;
             this.Clear.Text = "Rensa";
             this.Clear.UseVisualStyleBackColor = false;
@@ -77,9 +81,10 @@
             this.Pay.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Pay.Font = new System.Drawing.Font("Trebuchet MS", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Pay.ForeColor = System.Drawing.Color.White;
-            this.Pay.Location = new System.Drawing.Point(1475, 1175);
+            this.Pay.Location = new System.Drawing.Point(1291, 881);
+            this.Pay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Pay.Name = "Pay";
-            this.Pay.Size = new System.Drawing.Size(229, 176);
+            this.Pay.Size = new System.Drawing.Size(200, 132);
             this.Pay.TabIndex = 4;
             this.Pay.Text = "Betala";
             this.Pay.UseVisualStyleBackColor = false;
@@ -91,12 +96,12 @@
             this.TotalText.BackColor = System.Drawing.Color.Black;
             this.TotalText.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TotalText.ForeColor = System.Drawing.Color.White;
-            this.TotalText.Location = new System.Drawing.Point(1240, 1077);
-            this.TotalText.MaximumSize = new System.Drawing.Size(464, 97);
-            this.TotalText.MinimumSize = new System.Drawing.Size(464, 97);
+            this.TotalText.Location = new System.Drawing.Point(1085, 808);
+            this.TotalText.MaximumSize = new System.Drawing.Size(406, 73);
+            this.TotalText.MinimumSize = new System.Drawing.Size(406, 73);
             this.TotalText.Name = "TotalText";
-            this.TotalText.Padding = new System.Windows.Forms.Padding(0, 15, 0, 0);
-            this.TotalText.Size = new System.Drawing.Size(464, 97);
+            this.TotalText.Padding = new System.Windows.Forms.Padding(0, 11, 0, 0);
+            this.TotalText.Size = new System.Drawing.Size(406, 73);
             this.TotalText.TabIndex = 13;
             this.TotalText.Text = "Totalt: 0kr";
             // 
@@ -107,9 +112,10 @@
             this.TabControl.Font = new System.Drawing.Font("Trebuchet MS", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TabControl.ItemSize = new System.Drawing.Size(200, 85);
             this.TabControl.Location = new System.Drawing.Point(0, 0);
+            this.TabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(1241, 1351);
+            this.TabControl.Size = new System.Drawing.Size(1086, 1013);
             this.TabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.TabControl.TabIndex = 14;
             // 
@@ -117,9 +123,10 @@
             // 
             this.SnackPage.Controls.Add(this.SnackLayout);
             this.SnackPage.Location = new System.Drawing.Point(4, 89);
+            this.SnackPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SnackPage.Name = "SnackPage";
-            this.SnackPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.SnackPage.Size = new System.Drawing.Size(1233, 1258);
+            this.SnackPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SnackPage.Size = new System.Drawing.Size(1078, 920);
             this.SnackPage.TabIndex = 0;
             this.SnackPage.Text = "Ätbart";
             this.SnackPage.UseVisualStyleBackColor = true;
@@ -127,48 +134,72 @@
             // SnackLayout
             // 
             this.SnackLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SnackLayout.Location = new System.Drawing.Point(3, 3);
-            this.SnackLayout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SnackLayout.Location = new System.Drawing.Point(3, 2);
             this.SnackLayout.Name = "SnackLayout";
-            this.SnackLayout.Size = new System.Drawing.Size(1227, 1252);
+            this.SnackLayout.Size = new System.Drawing.Size(1072, 916);
             this.SnackLayout.TabIndex = 10;
             // 
             // MoviePage
             // 
-            this.MoviePage.Controls.Add(this.MovieLayout);
+            this.MoviePage.Controls.Add(this.tabControl1);
             this.MoviePage.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.MoviePage.Location = new System.Drawing.Point(4, 89);
+            this.MoviePage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MoviePage.Name = "MoviePage";
-            this.MoviePage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.MoviePage.Size = new System.Drawing.Size(1233, 1258);
+            this.MoviePage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MoviePage.Size = new System.Drawing.Size(1078, 920);
             this.MoviePage.TabIndex = 1;
             this.MoviePage.Text = "Filmer";
             this.MoviePage.UseVisualStyleBackColor = true;
             // 
-            // MovieLayout
+            // tabControl1
             // 
-            this.MovieLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MovieLayout.Location = new System.Drawing.Point(3, 3);
-            this.MovieLayout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MovieLayout.Name = "MovieLayout";
-            this.MovieLayout.Size = new System.Drawing.Size(1227, 1252);
-            this.MovieLayout.TabIndex = 0;
+            this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Right;
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Multiline = true;
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1078, 924);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(1047, 916);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 4);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(1047, 916);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1703, 1351);
+            this.ClientSize = new System.Drawing.Size(1490, 1013);
             this.Controls.Add(this.TabControl);
             this.Controls.Add(this.TotalText);
             this.Controls.Add(this.Pay);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.CheckoutList);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainWindow";
             this.Text = "Cinema POS System";
             this.TabControl.ResumeLayout(false);
             this.SnackPage.ResumeLayout(false);
             this.MoviePage.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,6 +214,8 @@
         public TabPage MoviePage;
         public TabPage SnackPage;
         public FlowLayoutPanel SnackLayout;
-        public FlowLayoutPanel MovieLayout;
+        public TabControl tabControl1;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
     }
 }
