@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace PosSystem
@@ -9,6 +10,7 @@ namespace PosSystem
         {
             InitializeComponent();
             CreateButtons();
+            Create_Seating(tabPage1);
         }
 
         public static Products products = new();
@@ -40,12 +42,15 @@ namespace PosSystem
             // Movie buttons
             for (int i = 0; i < products.moviesList.Count; i++)
             {
-                var product = products.moviesList[i];
 
+                var product = products.moviesList[i];
 
                 TabPage tabpage = new TabPage();
                 tabpage.Text = product.Name;
                 tabControl1.Controls.Add(tabpage);
+
+                Create_Seating(tabpage);
+
             }
         }
 
@@ -95,88 +100,41 @@ namespace PosSystem
             this.TotalText.Text = "Totalt: 0kr";
         }
 
-        private void MovieLayout_Paint(object sender, PaintEventArgs e)
+        // Create seats 
+        private void Create_Seating(TabPage tabpage)
         {
 
-        }
+            FlowLayoutPanel topToBottom = new FlowLayoutPanel();
+            topToBottom.Size = tabPage1.Size;
+            topToBottom.FlowDirection = FlowDirection.TopDown;
+            tabpage.Controls.Add(topToBottom);
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
+            Array[] rows =
+            {
+                new[] {1, 2, 3, 4,},
+                new[] {1, 2, 3, 4},
+                new[] {1, 2, 3, 4},
+                new[] {1, 2, 3, 4},
+            };
+            
+            Debug.WriteLine(rows.Length);
+            
+            for (int i = 0; i < rows.Length; i++)
+            {
+                FlowLayoutPanel panel = new FlowLayoutPanel();
+                panel.FlowDirection = FlowDirection.LeftToRight;
+                panel.AutoSize = true;
+                topToBottom.Controls.Add(panel);
+                for (int j = 0; j < rows[i].Length; j++) {
+                    System.Windows.Forms.Label label = new System.Windows.Forms.Label();
+                    label.Text = $"{j+1}";
+                    label.AutoSize = true;
+                    label.Padding = new Padding(20);
+                    label.Font = new Font("Trebuchet MS", 12);
+                    label.BackColor = Color.Gray;
+                    panel.Controls.Add(label);
+                };
+            };
 
         }
     }

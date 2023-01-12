@@ -36,10 +36,10 @@ namespace PosSystem
             {
                 List<string> products = new List<string>()
                 {
-                    "Filmnamn,Pris,Färg,Moms",
-                    "Shrek 1,170,Red,",
-                    "Shrek 2,170,Red,",
-                    "Shrek 3,170,Red,",
+                    "Filmnamn,Pris,Moms",
+                    "Shrek 1,170,",
+                    "Shrek 2,170,",
+                    "Shrek 3,170,",
                 };
 
                 File.WriteAllLines($@"{baseFolder}\movies.csv", products);
