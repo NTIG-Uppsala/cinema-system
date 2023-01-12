@@ -1,4 +1,7 @@
+using System.Data;
 using System.Diagnostics;
+using System.Linq.Expressions;
+using System.Net.Http.Headers;
 using System.Reflection.Emit;
 using System.Windows.Forms;
 
@@ -15,6 +18,7 @@ namespace PosSystem
         public static Products products = new();
 
         int empty = 0;
+        int emptySeats = 1;
 
         // Create buttons
 
@@ -56,8 +60,8 @@ namespace PosSystem
                 addMovie.Text = "Köp Biljett";
                 addMovie.AutoSize = true;
                 addMovie.Padding = new Padding(20);
-                // Add a click function  to add movie
-                addMovie.Location = new Point((1003 - addMovie.Width*2), 709);
+                addMovie.Click += UpdateSeats;
+                addMovie.Location = new Point((1003 - addMovie.Width * 2), 709);
                 Debug.WriteLine(addMovie.Location);
                 tabpage.Controls.Add(addMovie);
 
@@ -69,13 +73,13 @@ namespace PosSystem
         private void updateCheckout(object sender, EventArgs e)
         {
 
-            var button = sender as ProductButton; 
-            
+            var button = sender as ProductButton;
+
             if (button == null)
             {
                 throw new NullReferenceException("sender is not ProductButton");
             }
-            
+
             Program.AddToCheckout(button.product);
             UpdateCheckoutList();
             UpdateTotal();
@@ -111,7 +115,7 @@ namespace PosSystem
             this.CheckoutList.Items.Clear();
             this.TotalText.Text = "Totalt: 0kr";
         }
-        
+
         // Create seats 
         private void Create_Seating(TabPage tabpage)
         {
@@ -128,7 +132,7 @@ namespace PosSystem
                 new[] {1, 2, 3, 4},
                 new[] {1, 2, 3, 4},
             };
-            
+
             for (int i = 0; i < rows.Length; i++)
             {
                 FlowLayoutPanel panel = new FlowLayoutPanel();
@@ -137,7 +141,7 @@ namespace PosSystem
                 topToBottom.Controls.Add(panel);
                 for (int j = 0; j < rows[i].Length; j++) {
                     System.Windows.Forms.Label label = new System.Windows.Forms.Label();
-                    label.Text = $"{j+1}";
+                    label.Text = $"{j + 1}";
                     label.AutoSize = true;
                     label.Padding = new Padding(20);
                     label.Font = new Font("Trebuchet MS", 12);
@@ -153,7 +157,30 @@ namespace PosSystem
             amountEmpty.Padding = new Padding(0, 20, 20, 20);
             amountEmpty.Text = $"Lediga platser: {empty}";
             topToBottom.Controls.Add(amountEmpty);
+            amountEmpty.Name = $"{emptySeats}empty";
+            emptySeats += 1;
 
+            empty = 0;
+
+        }
+
+        private void UpdateSeats(object sender, EventArgs e)
+        {
+            var tab = tabControl1.SelectedTab.ToString();
+            switch (tab)
+            {
+                case "TabPage: {Shrek 1}":
+                    // code block
+                    break;
+                case "TabPage: {Shrek 2}":
+                    // code block
+                    break;
+                case "TabPage: {Shrek 3}":
+                default:
+                    // code block
+                    break;
+            }
+            Debug.WriteLine(tab);
         }
 
     }
