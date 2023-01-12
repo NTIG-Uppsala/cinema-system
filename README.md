@@ -1,7 +1,8 @@
 # Cinema system
 A POS system for the cinema industry.
 
-When running, the program will write receipts to the folder `PosReceipts` in the user's documents folder.
+When running, the program will write receipts to the folder `PosReceipts` in the `PosSystem` folder which is located in the user's document folder.
+In the `PosSystem` folder you will also find `movies.csv` and `products.csv` where the data of the movies and products are stored. Meaning you can customize what products and movies the PosSystem is selling, how much they cost and the color of the buttons.
 
 ## Setup
 To set up Visual Studio for this project: run the `setup.bat` file in setup folder.
