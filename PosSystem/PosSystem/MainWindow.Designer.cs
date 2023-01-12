@@ -37,16 +37,9 @@
             this.SnackLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.MoviePage = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.TabControl.SuspendLayout();
             this.SnackPage.SuspendLayout();
             this.MoviePage.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // CheckoutList
@@ -158,8 +151,6 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.tabControl1.ItemSize = new System.Drawing.Size(100, 100);
             this.tabControl1.Location = new System.Drawing.Point(-4, -6);
@@ -171,57 +162,6 @@
             this.tabControl1.Size = new System.Drawing.Size(1086, 930);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 104);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1078, 822);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Trebuchet MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(30, 723);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(244, 35);
-            this.label3.TabIndex = 107;
-            this.label3.Text = "Antal Platser: 2 st";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(30, 552);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 35);
-            this.label2.TabIndex = 106;
-            this.label2.Text = "Salong 1";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(30, 587);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(261, 35);
-            this.label1.TabIndex = 105;
-            this.label1.Text = "Lediga platser: 100";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 104);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1078, 822);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
@@ -239,9 +179,6 @@
             this.TabControl.ResumeLayout(false);
             this.SnackPage.ResumeLayout(false);
             this.MoviePage.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,10 +194,5 @@
         public TabPage SnackPage;
         public FlowLayoutPanel SnackLayout;
         public TabControl tabControl1;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
-        private Label label3;
-        private Label label2;
-        private Label label1;
     }
 }

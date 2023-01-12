@@ -10,10 +10,11 @@ namespace PosSystem
         {
             InitializeComponent();
             CreateButtons();
-            Create_Seating(tabPage1);
         }
 
         public static Products products = new();
+
+        int empty = 0;
 
         // Create buttons
 
@@ -47,15 +48,16 @@ namespace PosSystem
 
                 TabPage tabpage = new TabPage();
                 tabpage.Text = product.Name;
+                tabpage.AutoSize = true;
                 tabControl1.Controls.Add(tabpage);
 
                 // Add Movie button
                 Button addMovie = new Button();
-                addMovie.Text = "confirm";
+                addMovie.Text = "Köp Biljett";
                 addMovie.AutoSize = true;
                 addMovie.Padding = new Padding(20);
                 // Add a click function  to add movie
-                addMovie.Location = new Point((1003 - addMovie.Width), 709);
+                addMovie.Location = new Point((1003 - addMovie.Width*2), 709);
                 Debug.WriteLine(addMovie.Location);
                 tabpage.Controls.Add(addMovie);
 
@@ -109,13 +111,13 @@ namespace PosSystem
             this.CheckoutList.Items.Clear();
             this.TotalText.Text = "Totalt: 0kr";
         }
-
+        
         // Create seats 
         private void Create_Seating(TabPage tabpage)
         {
 
             FlowLayoutPanel topToBottom = new FlowLayoutPanel();
-            topToBottom.Size = tabPage1.Size;
+            topToBottom.Size = tabpage.Size;
             topToBottom.FlowDirection = FlowDirection.TopDown;
             tabpage.Controls.Add(topToBottom);
 
@@ -126,8 +128,6 @@ namespace PosSystem
                 new[] {1, 2, 3, 4},
                 new[] {1, 2, 3, 4},
             };
-            
-            Debug.WriteLine(rows.Length);
             
             for (int i = 0; i < rows.Length; i++)
             {
@@ -143,8 +143,18 @@ namespace PosSystem
                     label.Font = new Font("Trebuchet MS", 12);
                     label.BackColor = Color.Gray;
                     panel.Controls.Add(label);
+                    empty += 1;
                 };
             };
+
+            System.Windows.Forms.Label amountEmpty = new System.Windows.Forms.Label();
+            amountEmpty.Location = new Point(100, 100);
+            amountEmpty.AutoSize = true;
+            amountEmpty.Padding = new Padding(0, 20, 20, 20);
+            amountEmpty.Text = $"Lediga platser: {empty}";
+            topToBottom.Controls.Add(amountEmpty);
+
         }
+
     }
 }
