@@ -49,9 +49,19 @@ namespace PosSystem
                 tabpage.Text = product.Name;
                 tabControl1.Controls.Add(tabpage);
 
-                Create_Seating(tabpage);
+                // Add Movie button
+                Button addMovie = new Button();
+                addMovie.Text = "confirm";
+                addMovie.AutoSize = true;
+                addMovie.Padding = new Padding(20);
+                // Add a click function  to add movie
+                addMovie.Location = new Point((1003 - addMovie.Width), 709);
+                Debug.WriteLine(addMovie.Location);
+                tabpage.Controls.Add(addMovie);
 
+                Create_Seating(tabpage);
             }
+
         }
 
         private void updateCheckout(object sender, EventArgs e)
@@ -135,7 +145,6 @@ namespace PosSystem
                     panel.Controls.Add(label);
                 };
             };
-
         }
     }
 }

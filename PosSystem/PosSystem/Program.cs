@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Reflection;
 
+
 namespace PosSystem
 {
     public static class Program

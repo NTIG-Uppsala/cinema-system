@@ -38,7 +38,6 @@
             this.MoviePage = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label13 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -175,7 +174,6 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
@@ -185,17 +183,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.LightGray;
-            this.label13.Font = new System.Drawing.Font("Trebuchet MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(870, 723);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(136, 35);
-            this.label13.TabIndex = 108;
-            this.label13.Text = "Gå vidare";
             // 
             // label3
             // 
@@ -272,7 +259,6 @@
         public TabControl tabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
-        private Label label13;
         private Label label3;
         private Label label2;
         private Label label1;
