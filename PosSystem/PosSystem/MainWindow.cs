@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq.Expressions;
 using System.Net.Http.Headers;
 using System.Reflection.Emit;
@@ -16,9 +18,19 @@ namespace PosSystem
         }
 
         public static Products products = new();
+        public TicketProduct ticket = new TicketProduct("Ticket", 170m, "red");
 
-        int empty = 0;
-        int emptySeats = 1;
+        public int empty = 0;
+
+        int shrek1 = 16;
+        int shrek2 = 16;
+        int shrek3 = 16;
+
+
+        List<System.Windows.Forms.Label> movieSeats = new List<System.Windows.Forms.Label>();
+        List<System.Windows.Forms.Label> seatList = new List<System.Windows.Forms.Label>();
+
+        Dictionary<TabPage, ProductClass> movieDict = new Dictionary<TabPage, ProductClass>();
 
         // Create buttons
 
@@ -54,6 +66,8 @@ namespace PosSystem
                 tabpage.Text = product.Name;
                 tabpage.AutoSize = true;
                 tabControl1.Controls.Add(tabpage);
+               
+                movieDict.Add(tabpage, product);
 
                 // Add Movie button
                 Button addMovie = new Button();
@@ -146,6 +160,7 @@ namespace PosSystem
                     label.Padding = new Padding(20);
                     label.Font = new Font("Trebuchet MS", 12);
                     label.BackColor = Color.Gray;
+                    seatList.Add(label);
                     panel.Controls.Add(label);
                     empty += 1;
                 };
@@ -157,30 +172,64 @@ namespace PosSystem
             amountEmpty.Padding = new Padding(0, 20, 20, 20);
             amountEmpty.Text = $"Lediga platser: {empty}";
             topToBottom.Controls.Add(amountEmpty);
-            amountEmpty.Name = $"{emptySeats}empty";
-            emptySeats += 1;
-
+            movieSeats.Add(amountEmpty);
             empty = 0;
-
         }
 
         private void UpdateSeats(object sender, EventArgs e)
         {
+
             var tab = tabControl1.SelectedTab.ToString();
+
+            Debug.WriteLine($"HLEOIO?{movieSeats[1]}");
             switch (tab)
             {
                 case "TabPage: {Shrek 1}":
-                    // code block
+                    if (shrek1 > 0) { 
+                        shrek1 -= 1;
+                        movieSeats[0].Text = $"Lediga platser: {shrek1}";
+                        seatList[shrek1].BackColor = Color.Red;
+                        Program.AddToCheckout(movieDict[tabControl1.SelectedTab]);
+                    }
+                    else {
+                       shrek1 = 0;
+                       movieSeats[0].Text = $"Lediga platser: {shrek1}";
+                    }
                     break;
                 case "TabPage: {Shrek 2}":
-                    // code block
+                    if (shrek2 > 0) { 
+                        shrek2 -= 1;
+                        movieSeats[1].Text = $"Lediga platser: {shrek2}";
+                        seatList[shrek2].BackColor = Color.Red;
+                        Program.AddToCheckout(movieDict[tabControl1.SelectedTab]);
+                    }
+                    else
+                    {
+                        shrek2 = 0;
+                        movieSeats[1].Text = $"Lediga platser: {shrek2}";
+                    }
                     break;
                 case "TabPage: {Shrek 3}":
+                    if (shrek3 > 0) { 
+                        shrek3 -= 1;
+                        movieSeats[2].Text = $"Lediga platser: {shrek3}";
+                        seatList[shrek3].BackColor = Color.Red;
+                        Program.AddToCheckout(movieDict[tabControl1.SelectedTab]);
+                    }
+                    else
+                    {
+                        shrek3 = 0;
+                        movieSeats[2].Text = $"Lediga platser: {shrek3}";
+                    }
+                    break;
                 default:
                     // code block
                     break;
             }
-            Debug.WriteLine(tab);
+
+            UpdateCheckoutList();
+            UpdateTotal();
+
         }
 
     }
