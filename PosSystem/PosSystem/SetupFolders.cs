@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.Sqlite;
+
 
 namespace PosSystem
 {
@@ -43,6 +45,11 @@ namespace PosSystem
                 };
 
                 File.WriteAllLines($@"{baseFolder}\movies.csv", products);
+            }
+
+            if (!File.Exists($@"{baseFolder}\database.db"))
+            {
+                File.Create($@"{baseFolder}\database.db");
             }
         }
     }
