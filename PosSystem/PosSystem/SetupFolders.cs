@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,9 +49,22 @@ namespace PosSystem
                 File.WriteAllLines($@"{baseFolder}\movies.csv", products);
             }
 
-            if (!File.Exists($@"{baseFolder}\database.db"))
+            var dbPath = $@"{baseFolder}\database.db";
+
+            if (!File.Exists(dbPath))
             {
-                File.Create($@"{baseFolder}\database.db");
+                string query = "CREATE TABLE bookings(booking_id int NOT NULL UNIQUE, PRIMARY KEY (booking_id))";
+
+                var db = new SqliteConnection($"Data Source={dbPath};");
+                db.Open();
+
+                using (DbCommand cmd = db.CreateCommand())
+                {
+                    cmd.CommandText += query;
+                    cmd.ExecuteReader();
+                }
+                db.Close();
+
             }
         }
     }
