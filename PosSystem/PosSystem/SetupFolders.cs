@@ -23,12 +23,12 @@ namespace PosSystem
         private static readonly string[] tables =
         {           
             "CREATE TABLE products (name text, price text, vat integer, product_id integer PRIMARY KEY AUTOINCREMENT, color text);",
-            "CREATE TABLE movies(name text, price text, vat integer,movie_id integer PRIMARY KEY AUTOINCREMENT, duration integer);",
-            "CREATE TABLE reservation (seat_id integer, reservation_id integer PRIMARY KEY AUTOINCREMENT, screening_id integer, booking_id integer);",
-            "CREATE TABLE screenings (movie_id integer, start_time text, screen_id integer PRIMARY KEY AUTOINCREMENT, salon_id integer);",
-            "CREATE TABLE salon (seats integer, seat_amount integer, salon_id integer PRIMARY KEY AUTOINCREMENT);",
-            "CREATE TABLE seats (seat_id integer PRIMARY KEY AUTOINCREMENT, number integer, row integer, salon_id integer);",
-            "CREATE TABLE bookings (booking_id integer PRIMARY KEY AUTOINCREMENT, customer_id integer);",
+            "CREATE TABLE movies (name text, price text, vat integer,movie_id integer PRIMARY KEY AUTOINCREMENT, duration integer);",
+            "CREATE TABLE reservation (seat_id integer, reservation_id integer PRIMARY KEY AUTOINCREMENT, screening_id integer, booking_id integer, FOREIGN KEY(screening_id) REFERENCES screening(screen_id), FOREIGN KEY(booking_id) REFERENCES bookings(booking_id), FOREIGN KEY(seat_id) REFERENCES seast(seat_id));",
+            "CREATE TABLE screenings (movie_id integer, start_time text, screen_id integer PRIMARY KEY AUTOINCREMENT, salon_id integer, FOREIGN KEY(movie_id) REFERENCES movies(movie_id), FOREIGN KEY(salon_id) REFERENCES salon(salon_id));",
+            "CREATE TABLE salon (seat_id integer, seat_amount integer, salon_id integer PRIMARY KEY AUTOINCREMENT, FOREIGN KEY(seat_id) REFERENCES seats(seat_id));",
+            "CREATE TABLE seats (seat_id integer PRIMARY KEY AUTOINCREMENT, number integer, row integer, salon_id integer, FOREIGN KEY(salon_id) REFERENCES salon(salon_id));",
+            "CREATE TABLE bookings (booking_id integer PRIMARY KEY AUTOINCREMENT, customer_id integer, FOREIGN KEY(customer_id) REFERENCES customer(customer_id));",
             "CREATE TABLE customer (customer_id integer PRIMARY KEY AUTOINCREMENT, name text);"
         };
 
