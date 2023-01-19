@@ -51,7 +51,13 @@ namespace PosSystem
                             string name = (string)row["name"];
                             string color = (string)row["color"];
                             Int64 product_id = (Int64)row["product_id"];
-                            ProductClass product = new ProductClass(name, price, product_id, color);
+                            Int64 vat = 12;
+                            if (row["vat"].GetType() != typeof(DBNull))
+                            {
+                                vat = (Int64)row["vat"];
+                            }
+                                
+                            ProductClass product = new ProductClass(name, price, product_id, color, vat);
                             OutputList.Add(product);
                         }
                     }
