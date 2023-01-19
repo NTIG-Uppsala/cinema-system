@@ -11,14 +11,15 @@ namespace PosSystem
 {
     public partial class MainWindow : Form
     {
+        public static Products products = new();
         public MainWindow()
         {
             InitializeComponent();
             CreateButtons();
+            products.GetProducts();
         }
 
-        public static Products products = new();
-        public TicketProduct ticket = new TicketProduct("Ticket", 170m, "red");
+        public TicketProduct ticket = new TicketProduct("Ticket", 170m, 0, "red");
 
         public int empty = 0;
 
@@ -36,25 +37,19 @@ namespace PosSystem
 
         public void CreateButtons()
         {
+            //Product buttons
+            foreach (ProductClass product in products.GetProducts())
+            {
+                var button = new ProductButton(product);
+                button.Text = product.Name;
+                button.Name = $"{product.product_id}";
+                button.BackColor = ColorTranslator.FromHtml(product.Color);
+                button.Size = new Size(100, 100);
+                button.Font = new Font("Trebuchet MS", 12);
+                button.Click += updateCheckout;
 
-            // Product buttons
-            //for (int i = 0; i < products.productList.Count; i++)
-            //{
-            //    var product = products.productList[i];
-            //    Debug.WriteLine(product.Name);
-            //    Debug.WriteLine(product.Price);
-            //    Debug.WriteLine(product.Vat);
-
-            //    var button = new ProductButton(product);
-            //    button.Text = product.Name;
-            //    button.Name = $"button{i}";
-            //    button.BackColor = ColorTranslator.FromHtml(product.Color);
-            //    button.Size = new Size(100, 100);
-            //    button.Font = new Font("Trebuchet MS", 12);
-            //    button.Click += updateCheckout;
-
-            //    SnackLayout.Controls.Add(button);
-            //}
+                SnackLayout.Controls.Add(button);
+            }
 
             // Movie buttons
             for (int i = 0; i < products.moviesList.Count; i++)
