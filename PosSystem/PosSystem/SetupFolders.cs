@@ -20,7 +20,7 @@ namespace PosSystem
         string baseFolder = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\PosSystem";
         string receiptFolder = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\PosSystem\PosReceipts";
 
-        private static readonly string[] tables =
+        private static List<string> tables = new List<string>()
         {
             "CREATE TABLE products (name text, price text, vat integer, product_id integer PRIMARY KEY AUTOINCREMENT, color text);",
             "INSERT INTO products (name, price, color) VALUES ('Popcorn', 50, 'yellow');",
@@ -30,10 +30,33 @@ namespace PosSystem
             "CREATE TABLE reservation (seat_id integer, reservation_id integer PRIMARY KEY AUTOINCREMENT, screening_id integer, booking_id integer, FOREIGN KEY(screening_id) REFERENCES screening(screen_id), FOREIGN KEY(booking_id) REFERENCES bookings(booking_id), FOREIGN KEY(seat_id) REFERENCES seats(seat_id));",
             "CREATE TABLE screenings (movie_id integer, start_time text, screen_id integer PRIMARY KEY AUTOINCREMENT, salon_id integer, FOREIGN KEY(movie_id) REFERENCES movies(movie_id), FOREIGN KEY(salon_id) REFERENCES salon(salon_id));",
             "CREATE TABLE salon (salon_id integer PRIMARY KEY AUTOINCREMENT);",
+            "INSERT INTO salon (salon_id) VALUES (1);",
+            "INSERT INTO salon (salon_id) VALUES (2);",
             "CREATE TABLE seats (seat_id integer PRIMARY KEY AUTOINCREMENT, number integer, row integer, salon_id integer, FOREIGN KEY(salon_id) REFERENCES salon(salon_id));",
             "CREATE TABLE bookings (booking_id integer PRIMARY KEY AUTOINCREMENT, customer_id integer, FOREIGN KEY(customer_id) REFERENCES customer(customer_id));",
             "CREATE TABLE customer (customer_id integer PRIMARY KEY AUTOINCREMENT, name text);"
         };
+
+        public void createSalons()
+        {
+            // Salon 1, 2x3 seats
+            for (int i = 1; i <= 2; i++)
+            {
+                for (int j = 1; j <= 3; j++)
+                {
+                    tables.Add($"INSERT INTO seats (number, row, salon_id) VALUES ({i}, {j}, 1);");
+                }
+            }
+
+            // Salon 2, 3x4 seats
+            for (int i = 1; i <= 3; i++)
+            {
+                for (int j = 1; j <= 4; j++)
+                {
+                    tables.Add($"INSERT INTO seats (number, row, salon_id) VALUES ({i}, {j}, 2);");
+                }
+            }
+        }
 
         public SetupFolders()
         {
@@ -52,12 +75,13 @@ namespace PosSystem
 
                 File.WriteAllLines($@"{baseFolder}\movies.csv", products);
             }
-            
+
 
             var dbPath = $@"{baseFolder}\database.db";
 
             if (!File.Exists(dbPath))
             {
+                createSalons();
 
                 var db = new SqliteConnection($"Data Source={dbPath};");
                 db.Open();
