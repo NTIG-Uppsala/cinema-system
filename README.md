@@ -9,7 +9,7 @@ To set up Visual Studio for this project: run the `setup.bat` file in setup fold
 
 To install the client program, run the `setup.exe` file from a release.
 
-To install the appropriate packages for sqlite, open the 'package manager console' inside visual studio and run 'Install-Package Microsoft.data.sqlite'
+To install the appropriate packages for sqlite, open the `package manager console` inside visual studio and run `Install-Package Microsoft.data.sqlite`
 
 ## Install the program
 To install the program, install the `Install.zip` file in releases.
