@@ -24,11 +24,11 @@ namespace PosSystem
         {
             "CREATE TABLE products (name text, price text, vat integer, product_id integer PRIMARY KEY AUTOINCREMENT, color text);",
             "CREATE TABLE movies (name text, price text, vat integer,movie_id integer PRIMARY KEY AUTOINCREMENT, duration integer);",
-            "CREATE TABLE reservations (seat_id integer, reservation_id integer PRIMARY KEY AUTOINCREMENT, screening_id integer, booking_id integer, FOREIGN KEY(screening_id) REFERENCES screening(screen_id), FOREIGN KEY(booking_id) REFERENCES bookings(booking_id), FOREIGN KEY(seat_id) REFERENCES seats(seat_id));",
+            "CREATE TABLE reservations (seat_id integer, reservation_id integer PRIMARY KEY AUTOINCREMENT, screening_id integer, booking_id integer, FOREIGN KEY(screening_id) REFERENCES screenings(screen_id), FOREIGN KEY(booking_id) REFERENCES bookings(booking_id), FOREIGN KEY(seat_id) REFERENCES seats(seat_id));",
             "CREATE TABLE screenings (movie_id integer, start_time text, screen_id integer PRIMARY KEY AUTOINCREMENT, salon_id integer, FOREIGN KEY(movie_id) REFERENCES movies(movie_id), FOREIGN KEY(salon_id) REFERENCES salons(salon_id));",
             "CREATE TABLE salons (salon_id integer PRIMARY KEY AUTOINCREMENT);",
             "CREATE TABLE seats (seat_id integer PRIMARY KEY AUTOINCREMENT, number integer, row integer, salon_id integer, FOREIGN KEY(salon_id) REFERENCES salons(salon_id));",
-            "CREATE TABLE bookings (booking_id integer PRIMARY KEY AUTOINCREMENT, customer_id integer, FOREIGN KEY(customer_id) REFERENCES customer(customer_id));",
+            "CREATE TABLE bookings (booking_id integer PRIMARY KEY AUTOINCREMENT, customer_id integer, FOREIGN KEY(customer_id) REFERENCES customers(customer_id));",
             "CREATE TABLE customers (customer_id integer PRIMARY KEY AUTOINCREMENT, name text);"
         };
 
@@ -82,6 +82,37 @@ namespace PosSystem
             tables.Add("INSERT INTO movies (name, price, duration) VALUES ('Shrek 3', 170, 93);");
         }
 
+        public void sampleBooking1()
+        {
+            tables.Add("INSERT INTO customers (name) VALUES ('Sven Svensson');");
+            tables.Add("INSERT INTO bookings (customer_id) VALUES (1);");
+            tables.Add("INSERT INTO reservations (seat_id, booking_id, screening_id) VALUES (7, 1, 1);");
+            tables.Add("INSERT INTO reservations (seat_id, booking_id, screening_id) VALUES (9, 1, 1);");
+        }
+
+        public void sampleBooking2()
+        {
+            tables.Add("INSERT INTO customers (name) VALUES ('Karl Johansson');");
+            tables.Add("INSERT INTO bookings (customer_id) VALUES (2);");
+            tables.Add("INSERT INTO reservations (seat_id, booking_id, screening_id) VALUES (4, 2, 2);");
+            tables.Add("INSERT INTO reservations (seat_id, booking_id, screening_id) VALUES (5, 2, 2);");
+            tables.Add("INSERT INTO reservations (seat_id, booking_id, screening_id) VALUES (6, 2, 2);");
+        }
+
+        public void sampleBooking3()
+        {
+            tables.Add("INSERT INTO customers (name) VALUES ('Linda Berg');");
+            tables.Add("INSERT INTO bookings (customer_id) VALUES (3);");
+            tables.Add("INSERT INTO reservations (seat_id, booking_id, screening_id) VALUES (13, 3, 3);");
+            tables.Add("INSERT INTO reservations (seat_id, booking_id, screening_id) VALUES (1, 3, 2);");
+        }
+
+        public void sampleBooking4()
+        {
+            tables.Add("INSERT INTO bookings (customer_id) VALUES (1);");
+            tables.Add("INSERT INTO reservations (seat_id, booking_id, screening_id) VALUES (9, 4, 3);");
+        }
+
         public SetupFolders()
         {
             Directory.CreateDirectory(baseFolder);
@@ -110,6 +141,10 @@ namespace PosSystem
                 sampleSalons();
                 sampleScreenings();
                 sampleSeats();
+                sampleBooking1();
+                sampleBooking2();
+                sampleBooking3();
+                sampleBooking4();
 
                 var db = new SqliteConnection($"Data Source={dbPath};");
                 db.Open();
