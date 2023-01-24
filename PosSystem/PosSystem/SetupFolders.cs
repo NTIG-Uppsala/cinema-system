@@ -24,12 +24,12 @@ namespace PosSystem
         {
             "CREATE TABLE products (name text, price text, vat integer, product_id integer PRIMARY KEY AUTOINCREMENT, color text);",
             "CREATE TABLE movies (name text, price text, vat integer,movie_id integer PRIMARY KEY AUTOINCREMENT, duration integer);",
-            "CREATE TABLE reservation (seat_id integer, reservation_id integer PRIMARY KEY AUTOINCREMENT, screening_id integer, booking_id integer, FOREIGN KEY(screening_id) REFERENCES screening(screen_id), FOREIGN KEY(booking_id) REFERENCES bookings(booking_id), FOREIGN KEY(seat_id) REFERENCES seats(seat_id));",
-            "CREATE TABLE screenings (movie_id integer, start_time text, screen_id integer PRIMARY KEY AUTOINCREMENT, salon_id integer, FOREIGN KEY(movie_id) REFERENCES movies(movie_id), FOREIGN KEY(salon_id) REFERENCES salon(salon_id));",
-            "CREATE TABLE salon (salon_id integer PRIMARY KEY AUTOINCREMENT);",
-            "CREATE TABLE seats (seat_id integer PRIMARY KEY AUTOINCREMENT, number integer, row integer, salon_id integer, FOREIGN KEY(salon_id) REFERENCES salon(salon_id));",
+            "CREATE TABLE reservations (seat_id integer, reservation_id integer PRIMARY KEY AUTOINCREMENT, screening_id integer, booking_id integer, FOREIGN KEY(screening_id) REFERENCES screening(screen_id), FOREIGN KEY(booking_id) REFERENCES bookings(booking_id), FOREIGN KEY(seat_id) REFERENCES seats(seat_id));",
+            "CREATE TABLE screenings (movie_id integer, start_time text, screen_id integer PRIMARY KEY AUTOINCREMENT, salon_id integer, FOREIGN KEY(movie_id) REFERENCES movies(movie_id), FOREIGN KEY(salon_id) REFERENCES salons(salon_id));",
+            "CREATE TABLE salons (salon_id integer PRIMARY KEY AUTOINCREMENT);",
+            "CREATE TABLE seats (seat_id integer PRIMARY KEY AUTOINCREMENT, number integer, row integer, salon_id integer, FOREIGN KEY(salon_id) REFERENCES salons(salon_id));",
             "CREATE TABLE bookings (booking_id integer PRIMARY KEY AUTOINCREMENT, customer_id integer, FOREIGN KEY(customer_id) REFERENCES customer(customer_id));",
-            "CREATE TABLE customer (customer_id integer PRIMARY KEY AUTOINCREMENT, name text);"
+            "CREATE TABLE customers (customer_id integer PRIMARY KEY AUTOINCREMENT, name text);"
         };
 
         public void sampleSeats()
@@ -64,15 +64,17 @@ namespace PosSystem
         {
             for (int i = 1; i <= 2; i++)
             {
-                tables.Add("INSERT INTO salon DEFAULT VALUES;");
+                tables.Add("INSERT INTO salons DEFAULT VALUES;");
             }
         }
+        
         public void sampleScreenings()
         {
             tables.Add("INSERT INTO screenings (movie_id, start_time, salon_id) VALUES (1, '2023-01-01 13:37', 2);");
             tables.Add("INSERT INTO screenings (movie_id, start_time, salon_id) VALUES (2, '2023-01-01 13:37', 1);");
             tables.Add("INSERT INTO screenings (movie_id, start_time, salon_id) VALUES (3, '2023-01-01 19:00', 2);");
         }
+        
         public void sampleMovies()
         {
             tables.Add("INSERT INTO movies (name, price, duration) VALUES ('Shrek 1', 170, 90);");
