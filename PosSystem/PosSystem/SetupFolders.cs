@@ -27,11 +27,17 @@ namespace PosSystem
             "INSERT INTO products (name, price, color) VALUES ('Läsk', 35, 'pink');",
             "INSERT INTO products (name, price, color) VALUES ('Ahlgrens Bilar', 25, '#AA918E');",
             "CREATE TABLE movies (name text, price text, vat integer,movie_id integer PRIMARY KEY AUTOINCREMENT, duration integer);",
+            "INSERT INTO movies (name, price, duration) VALUES ('Shrek 1', 170, 90);",
+            "INSERT INTO movies (name, price, duration) VALUES ('Shrek 2', 170, 105);",
+            "INSERT INTO movies (name, price, duration) VALUES ('Shrek 3', 170, 93);",
             "CREATE TABLE reservation (seat_id integer, reservation_id integer PRIMARY KEY AUTOINCREMENT, screening_id integer, booking_id integer, FOREIGN KEY(screening_id) REFERENCES screening(screen_id), FOREIGN KEY(booking_id) REFERENCES bookings(booking_id), FOREIGN KEY(seat_id) REFERENCES seats(seat_id));",
             "CREATE TABLE screenings (movie_id integer, start_time text, screen_id integer PRIMARY KEY AUTOINCREMENT, salon_id integer, FOREIGN KEY(movie_id) REFERENCES movies(movie_id), FOREIGN KEY(salon_id) REFERENCES salon(salon_id));",
             "CREATE TABLE salon (salon_id integer PRIMARY KEY AUTOINCREMENT);",
-            "INSERT INTO salon (salon_id) VALUES (1);",
-            "INSERT INTO salon (salon_id) VALUES (2);",
+            "INSERT INTO salon DEFAULT VALUES;",
+            "INSERT INTO salon DEFAULT VALUES;",
+            "INSERT INTO screenings (movie_id, start_time, salon_id) VALUES (1, '2023-01-01 13:37', 2);",
+            "INSERT INTO screenings (movie_id, start_time, salon_id) VALUES (2, '2023-01-01 13:37', 1);",
+            "INSERT INTO screenings (movie_id, start_time, salon_id) VALUES (3, '2023-01-01 19:00', 2);",
             "CREATE TABLE seats (seat_id integer PRIMARY KEY AUTOINCREMENT, number integer, row integer, salon_id integer, FOREIGN KEY(salon_id) REFERENCES salon(salon_id));",
             "CREATE TABLE bookings (booking_id integer PRIMARY KEY AUTOINCREMENT, customer_id integer, FOREIGN KEY(customer_id) REFERENCES customer(customer_id));",
             "CREATE TABLE customer (customer_id integer PRIMARY KEY AUTOINCREMENT, name text);"
@@ -57,6 +63,8 @@ namespace PosSystem
                 }
             }
         }
+
+        
 
         public SetupFolders()
         {

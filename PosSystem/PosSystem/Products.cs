@@ -52,6 +52,7 @@ namespace PosSystem
                             string color = (string)row["color"];
                             Int64 product_id = (Int64)row["product_id"];
                             Int64 vat = 12;
+                            // Overwrites vat if vat value in db is not null
                             if (row["vat"].GetType() != typeof(DBNull))
                             {
                                 vat = (Int64)row["vat"];
