@@ -23,27 +23,16 @@ namespace PosSystem
         private static List<string> tables = new List<string>()
         {
             "CREATE TABLE products (name text, price text, vat integer, product_id integer PRIMARY KEY AUTOINCREMENT, color text);",
-            "INSERT INTO products (name, price, color) VALUES ('Popcorn', 50, 'yellow');",
-            "INSERT INTO products (name, price, color) VALUES ('Läsk', 35, 'pink');",
-            "INSERT INTO products (name, price, color) VALUES ('Ahlgrens Bilar', 25, '#AA918E');",
             "CREATE TABLE movies (name text, price text, vat integer,movie_id integer PRIMARY KEY AUTOINCREMENT, duration integer);",
-            "INSERT INTO movies (name, price, duration) VALUES ('Shrek 1', 170, 90);",
-            "INSERT INTO movies (name, price, duration) VALUES ('Shrek 2', 170, 105);",
-            "INSERT INTO movies (name, price, duration) VALUES ('Shrek 3', 170, 93);",
             "CREATE TABLE reservation (seat_id integer, reservation_id integer PRIMARY KEY AUTOINCREMENT, screening_id integer, booking_id integer, FOREIGN KEY(screening_id) REFERENCES screening(screen_id), FOREIGN KEY(booking_id) REFERENCES bookings(booking_id), FOREIGN KEY(seat_id) REFERENCES seats(seat_id));",
             "CREATE TABLE screenings (movie_id integer, start_time text, screen_id integer PRIMARY KEY AUTOINCREMENT, salon_id integer, FOREIGN KEY(movie_id) REFERENCES movies(movie_id), FOREIGN KEY(salon_id) REFERENCES salon(salon_id));",
             "CREATE TABLE salon (salon_id integer PRIMARY KEY AUTOINCREMENT);",
-            "INSERT INTO salon DEFAULT VALUES;",
-            "INSERT INTO salon DEFAULT VALUES;",
-            "INSERT INTO screenings (movie_id, start_time, salon_id) VALUES (1, '2023-01-01 13:37', 2);",
-            "INSERT INTO screenings (movie_id, start_time, salon_id) VALUES (2, '2023-01-01 13:37', 1);",
-            "INSERT INTO screenings (movie_id, start_time, salon_id) VALUES (3, '2023-01-01 19:00', 2);",
             "CREATE TABLE seats (seat_id integer PRIMARY KEY AUTOINCREMENT, number integer, row integer, salon_id integer, FOREIGN KEY(salon_id) REFERENCES salon(salon_id));",
             "CREATE TABLE bookings (booking_id integer PRIMARY KEY AUTOINCREMENT, customer_id integer, FOREIGN KEY(customer_id) REFERENCES customer(customer_id));",
             "CREATE TABLE customer (customer_id integer PRIMARY KEY AUTOINCREMENT, name text);"
         };
 
-        public void createSalons()
+        public void sampleSeats()
         {
             // Salon 1, 2x3 seats
             for (int i = 1; i <= 2; i++)
@@ -63,8 +52,33 @@ namespace PosSystem
                 }
             }
         }
-
         
+        public void sampleProducts()
+        {
+            tables.Add("INSERT INTO products (name, price, color) VALUES ('Popcorn', 50, 'yellow');");
+            tables.Add("INSERT INTO products (name, price, color) VALUES ('Läsk', 35, 'pink');");
+            tables.Add("INSERT INTO products (name, price, color) VALUES ('Ahlgrens Bilar', 25, '#AA918E');");
+        }
+
+        public void sampleSalons()
+        {
+            for (int i = 1; i <= 2; i++)
+            {
+                tables.Add("INSERT INTO salon DEFAULT VALUES;");
+            }
+        }
+        public void sampleScreenings()
+        {
+            tables.Add("INSERT INTO screenings (movie_id, start_time, salon_id) VALUES (1, '2023-01-01 13:37', 2);");
+            tables.Add("INSERT INTO screenings (movie_id, start_time, salon_id) VALUES (2, '2023-01-01 13:37', 1);");
+            tables.Add("INSERT INTO screenings (movie_id, start_time, salon_id) VALUES (3, '2023-01-01 19:00', 2);");
+        }
+        public void sampleMovies()
+        {
+            tables.Add("INSERT INTO movies (name, price, duration) VALUES ('Shrek 1', 170, 90);");
+            tables.Add("INSERT INTO movies (name, price, duration) VALUES ('Shrek 2', 170, 105);");
+            tables.Add("INSERT INTO movies (name, price, duration) VALUES ('Shrek 3', 170, 93);");
+        }
 
         public SetupFolders()
         {
@@ -89,7 +103,11 @@ namespace PosSystem
 
             if (!File.Exists(dbPath))
             {
-                createSalons();
+                sampleProducts();
+                sampleMovies();
+                sampleSalons();
+                sampleScreenings();
+                sampleSeats();
 
                 var db = new SqliteConnection($"Data Source={dbPath};");
                 db.Open();
