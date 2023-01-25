@@ -19,8 +19,6 @@ namespace PosSystem
             products.GetProducts();
         }
 
-        public TicketProduct ticket = new TicketProduct("Ticket", 170m, 0, 25);
-
         public int empty = 0;
 
         int shrek1 = 16;
