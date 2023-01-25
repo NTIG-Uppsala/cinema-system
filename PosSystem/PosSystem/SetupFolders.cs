@@ -22,12 +22,12 @@ namespace PosSystem
 
         private static List<string> tables = new List<string>()
         {
-            "CREATE TABLE products (name text, price text, vat integer, product_id integer PRIMARY KEY AUTOINCREMENT, color text);",
-            "CREATE TABLE movies (name text, price text, vat integer,movie_id integer PRIMARY KEY AUTOINCREMENT, duration integer);",
-            "CREATE TABLE reservations (seat_id integer, reservation_id integer PRIMARY KEY AUTOINCREMENT, screening_id integer, booking_id integer, FOREIGN KEY(screening_id) REFERENCES screenings(screen_id), FOREIGN KEY(booking_id) REFERENCES bookings(booking_id), FOREIGN KEY(seat_id) REFERENCES seats(seat_id));",
-            "CREATE TABLE screenings (movie_id integer, start_time text, screen_id integer PRIMARY KEY AUTOINCREMENT, salon_id integer, FOREIGN KEY(movie_id) REFERENCES movies(movie_id), FOREIGN KEY(salon_id) REFERENCES salons(salon_id));",
+            "CREATE TABLE products (name text NOT NULL, price text NOT NULL, vat integer DEFAULT 12, product_id integer PRIMARY KEY AUTOINCREMENT, color text);",
+            "CREATE TABLE movies (name text NOT NULL, price text NOT NULL, vat integer DEFAULT 25, movie_id integer PRIMARY KEY AUTOINCREMENT, duration integer);",
+            "CREATE TABLE reservations (seat_id integer NOT NULL, reservation_id integer PRIMARY KEY AUTOINCREMENT, screening_id integer NOT NULL, booking_id integer NOT NULL, FOREIGN KEY(screening_id) REFERENCES screenings(screen_id), FOREIGN KEY(booking_id) REFERENCES bookings(booking_id), FOREIGN KEY(seat_id) REFERENCES seats(seat_id));",
+            "CREATE TABLE screenings (movie_id integer NOT NULL, start_time text NOT NULL, screen_id integer PRIMARY KEY AUTOINCREMENT, salon_id integer NOT NULL, FOREIGN KEY(movie_id) REFERENCES movies(movie_id), FOREIGN KEY(salon_id) REFERENCES salons(salon_id));",
             "CREATE TABLE salons (salon_id integer PRIMARY KEY AUTOINCREMENT);",
-            "CREATE TABLE seats (seat_id integer PRIMARY KEY AUTOINCREMENT, number integer, row integer, salon_id integer, FOREIGN KEY(salon_id) REFERENCES salons(salon_id));",
+            "CREATE TABLE seats (seat_id integer PRIMARY KEY AUTOINCREMENT, number integer NOT NULL, row integer NOT NULL, salon_id integer NOT NULL, FOREIGN KEY(salon_id) REFERENCES salons(salon_id));",
             "CREATE TABLE bookings (booking_id integer PRIMARY KEY AUTOINCREMENT, customer_id integer, FOREIGN KEY(customer_id) REFERENCES customers(customer_id));",
             "CREATE TABLE customers (customer_id integer PRIMARY KEY AUTOINCREMENT, name text);"
         };

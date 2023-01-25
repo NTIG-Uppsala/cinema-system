@@ -65,13 +65,13 @@ namespace PosSystem
                         datatable.Load(reader);
                         foreach (DataRow row in datatable.Rows)
                         {
-                            string movie_id = Convert.ToString(row["movie_id"]);
+                            string movie_id = Convert.ToString(row["movie_id"])!;
                             string start_time = (string)row["start_time"];
-                            string screen_id = Convert.ToString(row["screen_id"]);
-                            string salon_id = Convert.ToString(row["salon_id"]);
+                            string screen_id = Convert.ToString(row["screen_id"])!;
+                            string salon_id = Convert.ToString(row["salon_id"])!;
 
 
-                            list[int.Parse(movie_id) - 1] = new string[] { movie_id, start_time, screen_id, salon_id };
+                            list[int.Parse(movie_id) - 1] = new string[] {movie_id, start_time, screen_id, salon_id };
                         }
                     }
                 }

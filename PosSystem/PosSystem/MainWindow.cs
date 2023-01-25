@@ -44,7 +44,7 @@ namespace PosSystem
                 button.BackColor = ColorTranslator.FromHtml(product.Color);
                 button.Size = new Size(100, 100);
                 button.Font = new Font("Trebuchet MS", 12);
-                button.Click += updateCheckout;
+                button.Click += updateCheckout!;
 
                 SnackLayout.Controls.Add(button);
             }
@@ -67,7 +67,7 @@ namespace PosSystem
                 addMovie.Text = "Köp Biljett";
                 addMovie.AutoSize = true;
                 addMovie.Padding = new Padding(20);
-                addMovie.Click += UpdateSeats;
+                addMovie.Click += UpdateSeats!;
                 addMovie.Location = new Point((1003 - addMovie.Width * 2), 709);
                 Debug.WriteLine(addMovie.Location);
                 tabpage.Controls.Add(addMovie);
