@@ -29,7 +29,7 @@ namespace PosSystem
 
 
         List<System.Windows.Forms.Label> movieSeats = new List<System.Windows.Forms.Label>();
-        List<System.Windows.Forms.Label> seatList = new List<System.Windows.Forms.Label>();
+        List<List<System.Windows.Forms.Label>> seatList = new List<List<System.Windows.Forms.Label>>();
 
         Dictionary<TabPage, ProductClass> movieDict = new Dictionary<TabPage, ProductClass>();
 
@@ -132,11 +132,12 @@ namespace PosSystem
             FlowLayoutPanel topToBottom = new FlowLayoutPanel();
             topToBottom.Size = tabpage.Size;
             topToBottom.FlowDirection = FlowDirection.TopDown;
+            seatList.Add(new List<System.Windows.Forms.Label>());
             tabpage.Controls.Add(topToBottom);
 
             Array[] rows =
             {
-                new[] {1, 2, 3, 4,},
+                new[] {1, 2, 3, 4},
                 new[] {1, 2, 3, 4},
                 new[] {1, 2, 3, 4},
                 new[] {1, 2, 3, 4},
@@ -155,7 +156,7 @@ namespace PosSystem
                     label.Padding = new Padding(20);
                     label.Font = new Font("Trebuchet MS", 12);
                     label.BackColor = Color.Gray;
-                    seatList.Add(label);
+                    seatList.Last().Add(label);
                     panel.Controls.Add(label);
                     empty += 1;
                 };
@@ -183,7 +184,7 @@ namespace PosSystem
                     if (shrek1 > 0) { 
                         shrek1 -= 1;
                         movieSeats[0].Text = $"Lediga platser: {shrek1}";
-                        seatList[shrek1].BackColor = Color.Red;
+                        seatList[0][shrek1].BackColor = Color.Red;
                         Program.AddToCheckout(movieDict[tabControl1.SelectedTab]);
                     }
                     else {
@@ -195,7 +196,7 @@ namespace PosSystem
                     if (shrek2 > 0) { 
                         shrek2 -= 1;
                         movieSeats[1].Text = $"Lediga platser: {shrek2}";
-                        seatList[shrek2].BackColor = Color.Red;
+                        seatList[1][shrek2].BackColor = Color.Red;
                         Program.AddToCheckout(movieDict[tabControl1.SelectedTab]);
                     }
                     else
@@ -208,7 +209,7 @@ namespace PosSystem
                     if (shrek3 > 0) { 
                         shrek3 -= 1;
                         movieSeats[2].Text = $"Lediga platser: {shrek3}";
-                        seatList[shrek3].BackColor = Color.Red;
+                        seatList[2][shrek3].BackColor = Color.Red;
                         Program.AddToCheckout(movieDict[tabControl1.SelectedTab]);
                     }
                     else
