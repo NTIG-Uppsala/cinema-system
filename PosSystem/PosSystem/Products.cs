@@ -16,6 +16,7 @@ namespace PosSystem
 
         public List<ProductClass> productList;
         public List<TicketProduct> movieList;
+        public List<string[]> screenings; 
 
         string connectionString;
         public Products()
@@ -28,6 +29,59 @@ namespace PosSystem
 
             productList = GetProducts();
             movieList = GetMovies();
+            screenings = getScreenings();
+        }
+
+        public List<string[]> getScreenings()
+        {
+            var list = new List<string[]>();
+
+            using (var connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+
+                var command = connection.CreateCommand();
+                var find_movies = connection.CreateCommand();
+                Int64 maxMovieId;
+
+                command.CommandText = "SELECT * FROM screenings;";
+                find_movies.CommandText = "SELECT MAX(screenings.movie_id) FROM screenings;";
+
+                using (var reader = find_movies.ExecuteReader())
+                {
+                    using (DataTable datatable = new())
+                    {
+                        datatable.Load(reader);
+                        maxMovieId = (Int64)datatable.Rows[0]["movie_id"]; // <-- The issue :)
+                    }
+                }
+
+                for (int i = 0; i < maxMovieId; i++)
+                {
+                    list.Add(new string[4]);
+                }
+
+                using (var reader = command.ExecuteReader())
+                {
+                    using (DataTable datatable = new())
+                    {
+                        datatable.Load(reader);
+                        foreach (DataRow row in datatable.Rows)
+                        {
+                            string movie_id = (string)row["movie_id"];
+                            string start_time = (string)row["start_time"];
+                            string screen_id = (string)row["screen_id"];
+                            string salon_id = (string)row["salon_id"];
+
+
+                            list[int.Parse(movie_id) - 1] = new string[] { movie_id, start_time, screen_id, salon_id };
+                        }
+                    }
+                }
+
+                connection.Close();
+            }
+            return list;
         }
 
         public List<ProductClass> GetProducts()
