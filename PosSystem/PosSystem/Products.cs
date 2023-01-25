@@ -45,15 +45,12 @@ namespace PosSystem
                 Int64 maxMovieId;
 
                 command.CommandText = "SELECT * FROM screenings;";
-                find_movies.CommandText = "SELECT MAX(screenings.movie_id) FROM screenings;";
+                find_movies.CommandText = "SELECT MAX(movie_id) FROM screenings;";
 
                 using (var reader = find_movies.ExecuteReader())
                 {
-                    using (DataTable datatable = new())
-                    {
-                        datatable.Load(reader);
-                        maxMovieId = (Int64)datatable.Rows[0]["movie_id"]; // <-- The issue :)
-                    }
+                    reader.Read();
+                    maxMovieId = reader.GetInt64(0);
                 }
 
                 for (int i = 0; i < maxMovieId; i++)
@@ -68,10 +65,10 @@ namespace PosSystem
                         datatable.Load(reader);
                         foreach (DataRow row in datatable.Rows)
                         {
-                            string movie_id = (string)row["movie_id"];
+                            string movie_id = Convert.ToString(row["movie_id"]);
                             string start_time = (string)row["start_time"];
-                            string screen_id = (string)row["screen_id"];
-                            string salon_id = (string)row["salon_id"];
+                            string screen_id = Convert.ToString(row["screen_id"]);
+                            string salon_id = Convert.ToString(row["salon_id"]);
 
 
                             list[int.Parse(movie_id) - 1] = new string[] { movie_id, start_time, screen_id, salon_id };
