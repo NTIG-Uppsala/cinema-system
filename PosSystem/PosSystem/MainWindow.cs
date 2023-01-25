@@ -19,7 +19,7 @@ namespace PosSystem
             products.GetProducts();
         }
 
-        public TicketProduct ticket = new TicketProduct("Ticket", 170m, 0, "red");
+        public TicketProduct ticket = new TicketProduct("Ticket", 170m, 0, 25);
 
         public int empty = 0;
 
@@ -52,10 +52,10 @@ namespace PosSystem
             }
 
             // Movie buttons
-            for (int i = 0; i < products.moviesList.Count; i++)
+            for (int i = 0; i < products.movieList.Count; i++)
             {
 
-                var product = products.moviesList[i];
+                var product = products.movieList[i];
 
                 TabPage tabpage = new TabPage();
                 tabpage.Text = product.Name;

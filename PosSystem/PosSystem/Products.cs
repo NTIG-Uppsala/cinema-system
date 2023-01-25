@@ -12,23 +12,23 @@ namespace PosSystem
 {
     public class Products
     {
-        private static string productsLocation = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\PosSystem\database.db";
-        private static string csvLocationMovies = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\PosSystem\movies.csv";
+        private static string dbLocation = $@"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}\PosSystem\database.db";
 
-        public List<ProductClass> moviesList = File.ReadAllLines(csvLocationMovies)
-                                                    .Skip(1)
-                                                    .Select(v => ParseCsv(v))
-                                                    .ToList();
+        public List<ProductClass> productList;
+        public List<TicketProduct> movieList;
+
         string connectionString;
         public Products()
         {
             connectionString = new SqliteConnectionStringBuilder()
             {
                 Mode = SqliteOpenMode.ReadWriteCreate,
-                DataSource = productsLocation
+                DataSource = dbLocation
             }.ToString();
-        }
 
+            productList = GetProducts();
+            movieList = GetMovies();
+        }
 
         public List<ProductClass> GetProducts()
         {
@@ -68,25 +68,41 @@ namespace PosSystem
             return OutputList;
         }
 
- 
-         
-        
-        public static ProductClass ParseCsv(string csvLine)
+        public List<TicketProduct> GetMovies()
         {
-
-            string[] values = csvLine.Split(",");
-
-            try
+            List<TicketProduct> OutputList = new();
+            using (var connection = new SqliteConnection(connectionString))
             {
-                ProductClass product = new(values[0], decimal.Parse(values[1]), 0, values[2], int.Parse(values[3]));
-                return product;
+                connection.Open();
+                var command = connection.CreateCommand();
+                command.CommandText = "SELECT * FROM movies;";
+
+                using (var reader = command.ExecuteReader())
+                {
+                    using (DataTable datatable = new())
+                    {
+                        datatable.Load(reader);
+                        foreach (DataRow row in datatable.Rows)
+                        {
+                            decimal price = Convert.ToDecimal(row["price"]);
+                            string name = (string)row["name"];
+
+                            Int64 movie_id = (Int64)row["movie_id"];
+                            Int64 vat = 25;
+                            // Overwrites vat if vat value in db is not null
+                            if (row["vat"].GetType() != typeof(DBNull))
+                            {
+                                vat = (Int64)row["vat"];
+                            }
+
+                            TicketProduct product = new TicketProduct(name, price, movie_id, vat);
+                            OutputList.Add(product);
+                        }
+                    }
+                }
+                connection.Close();
             }
-            catch
-            {
-                ProductClass product = new(values[0], decimal.Parse(values[1]), 0, values[2]);
-                return product;
-            }
+            return OutputList;
         }
-
     }
 }

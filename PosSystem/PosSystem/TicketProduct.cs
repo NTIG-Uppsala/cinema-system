@@ -9,7 +9,7 @@ namespace PosSystem
 {
     public class TicketProduct : ProductClass
     {
-        public TicketProduct(string name, decimal price, Int64 product_id, string color, Int64 vat = 25) : base(name, price, product_id, color, vat)
+        public TicketProduct(string name, decimal price, Int64 movie_id, Int64 vat = 25) : base(name, price, movie_id, "white", vat)
         {
             Debug.WriteLine(name);
         }
