@@ -12,11 +12,12 @@ namespace PosSystem
     public partial class MainWindow : Form
     {
         public static Products products = new();
+        public Seat seats = new();
+        
         public MainWindow()
         {
             InitializeComponent();
             CreateButtons();
-            products.GetProducts();
         }
 
         public int empty = 0;
@@ -126,7 +127,6 @@ namespace PosSystem
         // Create seats 
         private void Create_Seating(TabPage tabpage)
         {
-
             FlowLayoutPanel topToBottom = new FlowLayoutPanel();
             topToBottom.Size = tabpage.Size;
             topToBottom.FlowDirection = FlowDirection.TopDown;
