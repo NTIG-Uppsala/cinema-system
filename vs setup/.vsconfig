@@ -33,6 +33,7 @@
     "Microsoft.VisualStudio.Component.ManagedDesktop.Prerequisites",
     "Microsoft.VisualStudio.Component.DotNetModelBuilder",
     "Microsoft.ComponentGroup.Blend",
-    "Microsoft.VisualStudio.Workload.ManagedDesktop"
+    "Microsoft.VisualStudio.Workload.ManagedDesktop",
+    "Microsoft.NetCore.Component.Runtime.3.1"
   ]
 }
