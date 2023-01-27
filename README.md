@@ -56,6 +56,7 @@ If you want to contact us regarding any issues facing you when working on this p
 
 @Leon-Loov
 - Mail: leon.loov@outlook.com
+- Phone: 073-949 70 42
 
 ## Definition of Done
 - Code should be approved by everyone present, with a minimum of 2 people.
